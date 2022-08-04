@@ -12,7 +12,7 @@
 Implementation of Jibres App with Flutter framework
 
 [Jibres]: <http://jibres.com>
-Further information about Jibres is available in the jibres
+Further information about Jibres is available in the [Jibres]
 
 ## Install
 
