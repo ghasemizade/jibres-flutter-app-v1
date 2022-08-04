@@ -7,10 +7,12 @@
 </h1>
 
 
-# jibres-flutter-app-v1
+# Jibres App
+---------------------
+Implementation of Jibres App with Flutter framework
 
 
-This is an example file with default selections.
+Further information about Jibres is available in the Jibres site ("https://jibres.ir/")
 
 ## Install
 
