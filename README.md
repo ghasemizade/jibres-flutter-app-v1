@@ -14,7 +14,7 @@ Implementation of Jibres App with Flutter framework
 [Jibres]: <http://jibres.com>
 Further information about Jibres is available in the [Jibres]
 
-# programmer
+# Contributors
 ---------------------
 [HoseinGhasemizade]: <http://ghasemizade.com>
 [HoseinGhasemizade]
