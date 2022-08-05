@@ -23,12 +23,10 @@ String to = "#c80a5a";
 String primary = "#ffffff";
 String secondary = "#eeeeee";
 
-//introfa
-
 class _jsonState extends State<json> {
   @override
   void initState() {
-    _getData();
+    _getDataSplash();
     super.initState();
   }
 
@@ -37,7 +35,7 @@ class _jsonState extends State<json> {
     return Container();
   }
 
-  void _getData() async {
+  void _getDataSplash() async {
     var uri = Uri.parse('https://core.jibres.ir/r10/android/splash');
     Response response = await get(uri);
 

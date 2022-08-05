@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/data/model/splashJson.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:intro_slider/intro_slider.dart';
 import 'package:webview_flutter/webview_flutter.dart';
+
+import 'data/model/introJson.dart';
 
 class IntroSlide extends StatefulWidget {
   const IntroSlide({Key? key}) : super(key: key);
@@ -18,26 +22,26 @@ class IntroSlideState extends State<IntroSlide> {
 
     slides.add(
       Slide(
-        title: "سلام",
-        description: "به دنیای جیبرس خوش آمدید",
-        pathImage: "Images/Jibres-Logo-icon-white-1024.png",
-        backgroundColor: const Color.fromARGB(255, 200, 10, 90),
+        title: title1,
+        description: desc1,
+        pathImage: "Images/logo.png",
+        backgroundColor: HexColor(from),
       ),
     );
     slides.add(
       Slide(
-        title: "بفروش و لذت ببر",
-        description: "پلتفرم تجارت الکترونیک همه کاره",
-        pathImage: "Images/Jibres-Logo-icon-white-1024.png",
-        backgroundColor: const Color.fromARGB(255, 200, 10, 90),
+        title: subtitle2,
+        description: desc2,
+        pathImage: "Images/logo.png",
+        backgroundColor: HexColor(from),
       ),
     );
     slides.add(
       Slide(
-        title: "جیبرس",
-        description: ".برخی اوقات شما نیاز به یک تغییر بزرگ دارید",
-        pathImage: "Images/Jibres-Logo-icon-white-1024.png",
-        backgroundColor: const Color.fromARGB(255, 200, 10, 90),
+        title: title,
+        description: subtitle5,
+        pathImage: "Images/logo.png",
+        backgroundColor: HexColor(from),
       ),
     );
   }
