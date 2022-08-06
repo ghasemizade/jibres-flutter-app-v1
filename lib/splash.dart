@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Lang.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
-import 'data/model/splashJson.dart';
+import 'data/splashJson.dart';
 
 class splashScreen extends StatefulWidget {
   splashScreen({Key? key}) : super(key: key);

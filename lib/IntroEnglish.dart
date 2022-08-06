@@ -20,7 +20,7 @@ class IntroSlideEnglishState extends State<IntroSlideEnglish> {
       Slide(
         title: "Hello",
         description: "Welcome to the world of Jibbers",
-        pathImage: "Images/Jibres-Logo-icon-white-1024.png",
+        pathImage: "Images/logo.png",
         backgroundColor: const Color.fromARGB(255, 200, 10, 90),
       ),
     );
@@ -28,7 +28,7 @@ class IntroSlideEnglishState extends State<IntroSlideEnglish> {
       Slide(
         title: "Sell and Enjoy",
         description: "Platform electronic commerce",
-        pathImage: "Images/Jibres-Logo-icon-white-1024.png",
+        pathImage: "Images/logo.png",
         backgroundColor: const Color.fromARGB(255, 200, 10, 90),
       ),
     );
@@ -36,7 +36,7 @@ class IntroSlideEnglishState extends State<IntroSlideEnglish> {
       Slide(
         title: "Jibres",
         description: "Sometimes you need a big change",
-        pathImage: "Images/Jibres-Logo-icon-white-1024.png",
+        pathImage: "Images/logo.png",
         backgroundColor: const Color.fromARGB(255, 200, 10, 90),
       ),
     );
