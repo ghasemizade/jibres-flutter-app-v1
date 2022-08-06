@@ -9,7 +9,7 @@
 
 # Jibres App - Flutter UI
 <img src= "https://user-images.githubusercontent.com/92257857/183235662-e1e8fc15-5099-48c7-900e-770a140a3a4b.png" width="250" height="450">
-
+<img src= "https://user-images.githubusercontent.com/92257857/183235868-f50b9dcf-e219-43da-b4cd-59fe48f105ea.png" width="250" height="450">
 
 
 
