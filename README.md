@@ -8,7 +8,8 @@
 
 
 # Jibres App - Flutter UI
-![splash](https://user-images.githubusercontent.com/92257857/183235568-81e54520-ae24-4f4b-be5f-a645d61a8fe3.png)
+![introSlide](https://user-images.githubusercontent.com/92257857/183235662-e1e8fc15-5099-48c7-900e-770a140a3a4b.png)
+
 ![introSlide](https://user-images.githubusercontent.com/92257857/183235582-ceb2d6ad-ed3c-4090-99e2-7c0774670eef.png)
 
 
