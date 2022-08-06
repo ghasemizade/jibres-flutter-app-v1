@@ -1,8 +1,6 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/splash.dart';
-import 'package:http/http.dart';
+
 
 void main() {
   runApp(Application());
@@ -17,7 +15,6 @@ class Application extends StatefulWidget {
   State<Application> createState() => _ApplicationState();
 }
 
-String title1 = "dfd";
 
 class _ApplicationState extends State<Application> {
   @override

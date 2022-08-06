@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/data/modle/splashJson.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:intro_slider/intro_slider.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
@@ -21,7 +23,7 @@ class IntroSlideEnglishState extends State<IntroSlideEnglish> {
         title: "Hello",
         description: "Welcome to the world of Jibbers",
         pathImage: "Images/logo.png",
-        backgroundColor: const Color.fromARGB(255, 200, 10, 90),
+        backgroundColor: HexColor(from),
       ),
     );
     slides.add(
@@ -29,7 +31,7 @@ class IntroSlideEnglishState extends State<IntroSlideEnglish> {
         title: "Sell and Enjoy",
         description: "Platform electronic commerce",
         pathImage: "Images/logo.png",
-        backgroundColor: const Color.fromARGB(255, 200, 10, 90),
+        backgroundColor: HexColor(from),
       ),
     );
     slides.add(
@@ -37,15 +39,11 @@ class IntroSlideEnglishState extends State<IntroSlideEnglish> {
         title: "Jibres",
         description: "Sometimes you need a big change",
         pathImage: "Images/logo.png",
-        backgroundColor: const Color.fromARGB(255, 200, 10, 90),
+        backgroundColor: HexColor(from),
       ),
     );
   }
 
-  // void onDonePress() {
-  //   // Do what you want
-  //   log("End of slides");
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -56,10 +54,10 @@ class IntroSlideEnglishState extends State<IntroSlideEnglish> {
           context,
           MaterialPageRoute(builder: (context) {
             return Scaffold(
-              backgroundColor: const Color.fromARGB(255, 200, 10, 90),
+              backgroundColor: HexColor(from),
               body: SafeArea(
                 child: WebView(
-                  initialUrl: ('https://jibres.ir/my'),
+                  initialUrl: ('https://jibres.com/my'),
                   javascriptMode: JavascriptMode.unrestricted,
                 ),
               ),

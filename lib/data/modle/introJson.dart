@@ -35,6 +35,10 @@ class _jsonState extends State<json> {
 
     setState(() {
       title1 = jsonDecode(response.body)["result"]["page"][0]["title"];
+      desc1 = jsonDecode(response.body)["result"]["page"][0]["decs"];
+      subtitle2 = jsonDecode(response.body)["result"]["page"][1]["subtitle"];
+      desc2 = jsonDecode(response.body)["result"]["page"][1]["desc"];
+      subtitle5 = jsonDecode(response.body)["result"]["page"][4]["subtitle"];
     });
 
     print(title1);

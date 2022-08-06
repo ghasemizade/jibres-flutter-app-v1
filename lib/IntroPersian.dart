@@ -3,8 +3,8 @@ import 'package:hexcolor/hexcolor.dart';
 import 'package:intro_slider/intro_slider.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-import 'data/introJson.dart';
-import 'data/splashJson.dart';
+import 'data/modle/introJson.dart';
+import 'data/modle/splashJson.dart';
 
 class IntroSlide extends StatefulWidget {
   const IntroSlide({Key? key}) : super(key: key);
@@ -60,7 +60,7 @@ class IntroSlideState extends State<IntroSlide> {
           context,
           MaterialPageRoute(builder: (context) {
             return Scaffold(
-              backgroundColor: const Color.fromARGB(255, 200, 10, 90),
+              backgroundColor: HexColor(from),
               body: SafeArea(
                 child: WebView(
                   initialUrl: ('https://jibres.ir/my'),
