@@ -42,4 +42,4 @@ PRs accepted.
 
 ## License
 
-MIT © Richard McRichface
+MIT © Hosein Ghasemizade
