@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/splash.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:intro_slider/intro_slider.dart';
 import 'package:webview_flutter/webview_flutter.dart';
-
 import 'data/modle/introJson.dart';
-import 'data/modle/splashJson.dart';
 
 class IntroSlide extends StatefulWidget {
   const IntroSlide({Key? key}) : super(key: key);
@@ -25,31 +24,26 @@ class IntroSlideState extends State<IntroSlide> {
         title: title1,
         description: desc1,
         pathImage: "Images/logo.png",
-        backgroundColor: HexColor(from),
+        backgroundColor: HexColor(from == null ? "" : from),
       ),
     );
     slides.add(
       Slide(
-        title: subtitle2,
-        description: desc2,
+        title: 'subtitle2',
+        description: 'desc2',
         pathImage: "Images/logo.png",
-        backgroundColor: HexColor(from),
+        backgroundColor: HexColor(from == null ? "" : from),
       ),
     );
     slides.add(
       Slide(
-        title: title,
-        description: subtitle5,
+        title: title == null ? "" : title,
+        description: 'subtitle5',
         pathImage: "Images/logo.png",
-        backgroundColor: HexColor(from),
+        backgroundColor: HexColor(from == null ? "" : from),
       ),
     );
   }
-
-  // void onDonePress() {
-  //   // Do what you want
-  //   log("End of slides");
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +54,7 @@ class IntroSlideState extends State<IntroSlide> {
           context,
           MaterialPageRoute(builder: (context) {
             return Scaffold(
-              backgroundColor: HexColor(from),
+              backgroundColor: HexColor(from == null ? "" : from),
               body: SafeArea(
                 child: WebView(
                   initialUrl: ('https://jibres.ir/my'),

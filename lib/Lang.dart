@@ -3,6 +3,7 @@ import 'package:flutter_application_1/IntroEnglish.dart';
 import 'package:flutter_application_1/IntroPersian.dart';
 import 'package:flutter_application_1/data/modle/splashJson.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:flutter_application_1/splash.dart';
 
 class Language extends StatefulWidget {
   const Language({Key? key}) : super(key: key);
@@ -76,7 +77,7 @@ class _LanguageState extends State<Language> {
       context,
       MaterialPageRoute(builder: (context) {
         return Scaffold(
-          backgroundColor: HexColor(from),
+          backgroundColor: HexColor(from == null ? "" : from),
           body: SafeArea(
             child: IntroSlide(),
           ),
@@ -91,7 +92,7 @@ class _LanguageState extends State<Language> {
       MaterialPageRoute(
         builder: ((context) {
           return Scaffold(
-            backgroundColor: HexColor(from),
+            backgroundColor: HexColor(from == null ? "" : from),
             body: SafeArea(
               child: IntroSlideEnglish(),
             ),

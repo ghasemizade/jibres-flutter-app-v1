@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/splash.dart';
 
-
 void main() {
   runApp(Application());
 }
@@ -14,7 +13,6 @@ class Application extends StatefulWidget {
   @override
   State<Application> createState() => _ApplicationState();
 }
-
 
 class _ApplicationState extends State<Application> {
   @override
