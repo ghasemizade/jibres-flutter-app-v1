@@ -1,13 +1,10 @@
 import 'dart:async';
 
-import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/IntroEnglish.dart';
 import 'package:flutter_application_1/IntroPersian.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:flutter_application_1/splash.dart';
-import 'package:internet_connection_checker/internet_connection_checker.dart';
 
 class Language extends StatefulWidget {
   const Language({Key? key}) : super(key: key);
@@ -16,64 +13,74 @@ class Language extends StatefulWidget {
   State<Language> createState() => _LanguageState();
 }
 
-class _LanguageState extends State<Language> with TickerProviderStateMixin {
-  late StreamSubscription subscription;
-  var isDeviceConnected = false;
-  bool isAlertSet = false;
-
-  @override
-  void initState() {
-    // getConnectivity();
-    super.initState();
-  }
-
+class _LanguageState extends State<Language> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 249, 231, 224),
       body: Center(
-        child: Row(
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            TextButton(
-              onPressed: () {
-                _handlePersian();
-              },
-              child: Container(
-                width: 170.0,
-                height: 145.0,
-                decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(20),
-                  ),
-                  color: Colors.white,
-                ),
-                padding: EdgeInsets.all(15.0),
-                child: Text(
-                  '!سلام\n .من جیبرس هستم\n\n\n فارسی',
-                  textAlign: TextAlign.right,
-                ),
+          children: [
+            Text(
+              "انتخاب",
+              style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
+            ),
+            Text(
+              "زبان شما",
+              style: TextStyle(
+                fontSize: 20,
+                color: Colors.grey,
               ),
             ),
-            TextButton(
-              onPressed: () {
-                _handleEnglish();
-              },
-              child: Container(
-                width: 170.0,
-                height: 145.0,
-                decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(20),
+            SizedBox(
+              height: 40,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                TextButton(
+                  onPressed: () {
+                    _handlePersian();
+                  },
+                  child: Container(
+                    width: 170.0,
+                    height: 145.0,
+                    decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(20),
+                      ),
+                      color: Colors.white,
+                    ),
+                    padding: EdgeInsets.all(15.0),
+                    child: Text(
+                      '!سلام\n .من جیبرس هستم\n\n\n فارسی',
+                      textAlign: TextAlign.right,
+                    ),
                   ),
-                  color: Colors.white,
                 ),
-                padding: EdgeInsets.all(15.0),
-                child: Text(
-                  'Hello! \n Im jibres. \n\n\n English',
-                  style: TextStyle(fontWeight: FontWeight.w600),
+                TextButton(
+                  onPressed: () {
+                    _handleEnglish();
+                  },
+                  child: Container(
+                    width: 170.0,
+                    height: 145.0,
+                    decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(20),
+                      ),
+                      color: Colors.white,
+                    ),
+                    padding: EdgeInsets.all(15.0),
+                    child: Text(
+                      'Hello! \n Im jibres. \n\n\n English',
+                      style: TextStyle(
+                          fontWeight: FontWeight.w600, color: Colors.orange),
+                    ),
+                  ),
                 ),
-              ),
+              ],
             ),
           ],
         ),
