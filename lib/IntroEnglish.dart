@@ -4,7 +4,6 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/connectivity/errorNoConnecting.dart';
-import 'package:flutter_application_1/data/modle/splashJson.dart';
 import 'package:flutter_application_1/splash.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';

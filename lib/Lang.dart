@@ -1,8 +1,7 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/IntroEnglish.dart';
 import 'package:flutter_application_1/IntroPersian.dart';
+import 'package:flutter_application_1/languageData/DataLang.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:flutter_application_1/splash.dart';
 
@@ -23,11 +22,11 @@ class _LanguageState extends State<Language> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              "انتخاب",
+              choose,
               style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
             ),
             Text(
-              "زبان شما",
+              yourLang,
               style: TextStyle(
                 fontSize: 20,
                 color: Colors.grey,
@@ -54,7 +53,7 @@ class _LanguageState extends State<Language> {
                     ),
                     padding: EdgeInsets.all(15.0),
                     child: Text(
-                      '!سلام\n .من جیبرس هستم\n\n\n فارسی',
+                      choosePersian,
                       textAlign: TextAlign.right,
                     ),
                   ),
@@ -74,7 +73,7 @@ class _LanguageState extends State<Language> {
                     ),
                     padding: EdgeInsets.all(15.0),
                     child: Text(
-                      'Hello! \n Im jibres. \n\n\n English',
+                      chooseEnglish,
                       style: TextStyle(
                           fontWeight: FontWeight.w600, color: Colors.orange),
                     ),
