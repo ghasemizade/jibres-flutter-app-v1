@@ -1,9 +1,13 @@
+import 'dart:async';
+
+import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/IntroEnglish.dart';
 import 'package:flutter_application_1/IntroPersian.dart';
-import 'package:flutter_application_1/data/modle/splashJson.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:flutter_application_1/splash.dart';
+import 'package:internet_connection_checker/internet_connection_checker.dart';
 
 class Language extends StatefulWidget {
   const Language({Key? key}) : super(key: key);
@@ -12,9 +16,14 @@ class Language extends StatefulWidget {
   State<Language> createState() => _LanguageState();
 }
 
-class _LanguageState extends State<Language> {
+class _LanguageState extends State<Language> with TickerProviderStateMixin {
+  late StreamSubscription subscription;
+  var isDeviceConnected = false;
+  bool isAlertSet = false;
+
   @override
   void initState() {
+    // getConnectivity();
     super.initState();
   }
 

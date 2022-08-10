@@ -4,6 +4,7 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Lang.dart';
+import 'package:flutter_application_1/data/modle/splashJson.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:http/http.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
@@ -60,60 +61,70 @@ class _splashScreenState extends State<splashScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: HexColor(from == null ? "#c80a5a" : from),
-      body: Center(
-        child: Column(
-          children: [
-            SizedBox(
-              height: 180.0,
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 80),
-              child: logo == null
-                  ? Image(
-                      image: AssetImage('Images/logo.png'),
-                    )
-                  : Image(
-                      image: NetworkImage(
-                          'https://cdn.jibres.ir/logo/icon-white/png/Jibres-Logo-icon-white-1024.png'),
-                    ),
-            ),
-            Text(
-              title == null ? "جیبرس" : title,
-              style: TextStyle(
-                fontWeight: FontWeight.w900,
-                fontSize: 28,
-                color: HexColor(
-                  primary == null ? "#ffffff" : primary,
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              HexColor(from == null ? from1 : from),
+              HexColor(to == null ? to1 : to),
+            ],
+          ),
+        ),
+        child: Center(
+          child: Column(
+            children: [
+              SizedBox(
+                height: 180.0,
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 80),
+                child: logo == null
+                    ? Image(
+                        image: AssetImage(logo1),
+                      )
+                    : Image(
+                        image: NetworkImage(logo),
+                      ),
+              ),
+              Text(
+                title == null ? title1 : title,
+                style: TextStyle(
+                  fontWeight: FontWeight.w900,
+                  fontSize: 28,
+                  color: HexColor(
+                    primary == null ? primary1 : primary,
+                  ),
                 ),
               ),
-            ),
-            Text(
-              desc == null ? "بفروش و لذت ببر" : desc,
-              style: TextStyle(
-                fontWeight: FontWeight.w900,
-                fontSize: 20,
-                color: HexColor(
-                  primary == null ? "#ffffff" : primary,
+              Text(
+                desc == null ? desc1 : desc,
+                style: TextStyle(
+                  fontWeight: FontWeight.w900,
+                  fontSize: 20,
+                  color: HexColor(
+                    primary == null ? primary1 : primary,
+                  ),
                 ),
               ),
-            ),
-            SizedBox(
-              height: 200.0,
-            ),
-            CircularProgressIndicator(
-              strokeWidth: 2,
-            ),
-            Text(
-              meta == null ? "قدرت گرفته از جیبرس" : meta,
-              style: TextStyle(
-                fontSize: 14,
-                color: HexColor(
-                  primary == null ? "#ffffff" : primary,
+              SizedBox(
+                height: 200.0,
+              ),
+              CircularProgressIndicator(
+                strokeWidth: 2,
+              ),
+              Text(
+                meta == null ? meta1 : meta,
+                style: TextStyle(
+                  fontSize: 14,
+                  color: HexColor(
+                    primary == null ? primary1 : primary,
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
@@ -144,7 +155,7 @@ class _splashScreenState extends State<splashScreen>
 
   void _handleSplash() async {
     await Future.delayed(Duration(
-      milliseconds: sleep == null ? 3000 : sleep,
+      milliseconds: sleep == null ? sleep1 : sleep,
     ));
     Navigator.pushReplacement(
       context,
