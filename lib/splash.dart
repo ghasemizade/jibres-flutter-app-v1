@@ -4,6 +4,7 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Lang.dart';
+import 'package:flutter_application_1/connectivity/errorNoConnecting.dart';
 import 'package:flutter_application_1/data/modle/splashJson.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:http/http.dart';
@@ -133,12 +134,12 @@ class _splashScreenState extends State<splashScreen>
   showDialogBox() => showCupertinoDialog<String>(
         context: context,
         builder: (BuildContext context) => CupertinoAlertDialog(
-          title: const Text('No Connection'),
-          content: const Text('Please check your internet connectivity'),
+          title: Text(title_connect_en),
+          content: Text(body_connect_en),
           actions: <Widget>[
             TextButton(
               onPressed: () async {
-                Navigator.pop(context, 'Cancel');
+                Navigator.pop(context, cancel_connect_en);
                 setState(() => isAlertSet = false);
                 isDeviceConnected =
                     await InternetConnectionChecker().hasConnection;
@@ -147,7 +148,7 @@ class _splashScreenState extends State<splashScreen>
                   setState(() => isAlertSet = true);
                 }
               },
-              child: const Text('OK'),
+              child: Text(ok_connect_en),
             ),
           ],
         ),
