@@ -6,9 +6,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Lang.dart';
 import 'package:flutter_application_1/connectivity/errorNoConnecting.dart';
 import 'package:flutter_application_1/data/modle/splashJson.dart';
+import 'package:flutter_application_1/languageData/DataLang.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:http/http.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 dynamic logo;
 dynamic theme;
@@ -52,12 +54,6 @@ class _splashScreenState extends State<splashScreen>
           }
         },
       );
-
-  @override
-  void dispose() {
-    subscription.cancel();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -168,7 +164,7 @@ class _splashScreenState extends State<splashScreen>
     );
   }
 
-  void _getDataSplash() async {
+  Future<void> _getDataSplash() async {
     var urI = Uri.parse('https://core.jibres.ir/r10/android/splash');
     Response response = await get(urI);
 

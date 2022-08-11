@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/data/modle/splashJson.dart';
 
 import 'package:flutter_application_1/splash.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -25,7 +26,7 @@ class IntroSlideEnglishState extends State<IntroSlideEnglish> {
         title: "Hello",
         description: "Welcome to the world of Jibbers",
         pathImage: "Images/logo.png",
-        backgroundColor: HexColor(from == null ? "" : from),
+        backgroundColor: HexColor(from == null ? from1 : from),
       ),
     );
     slides.add(
@@ -33,7 +34,7 @@ class IntroSlideEnglishState extends State<IntroSlideEnglish> {
         title: "Sell and Enjoy",
         description: "Platform electronic commerce",
         pathImage: "Images/logo.png",
-        backgroundColor: HexColor(from == null ? "" : from),
+        backgroundColor: HexColor(from == null ? from1 : from),
       ),
     );
     slides.add(
@@ -41,7 +42,7 @@ class IntroSlideEnglishState extends State<IntroSlideEnglish> {
         title: "Jibres",
         description: "Sometimes you need a big change",
         pathImage: "Images/logo.png",
-        backgroundColor: HexColor(from == null ? "" : from),
+        backgroundColor: HexColor(from == null ? from1 : from),
       ),
     );
   }
@@ -55,7 +56,7 @@ class IntroSlideEnglishState extends State<IntroSlideEnglish> {
           context,
           MaterialPageRoute(builder: (context) {
             return Scaffold(
-              backgroundColor: HexColor(from == null ? "" : from),
+              backgroundColor: HexColor(from == null ? from1 : from),
               body: SafeArea(
                 child: WebView(
                   initialUrl: ('https://jibres.com/my'),
