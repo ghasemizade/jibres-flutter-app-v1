@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
+import 'package:after_layout/after_layout.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -10,6 +11,7 @@ import 'package:flutter_application_1/languageData/DataLang.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:http/http.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
@@ -25,7 +27,6 @@ dynamic primary;
 dynamic secondary;
 
 class splashScreen extends StatefulWidget {
-  static const String id = "/Language";
   splashScreen({Key? key}) : super(key: key);
 
   @override
@@ -33,7 +34,41 @@ class splashScreen extends StatefulWidget {
 }
 
 class _splashScreenState extends State<splashScreen>
-    with TickerProviderStateMixin {
+    with AfterLayoutMixin<splashScreen> {
+  Future checkFirstSeen() async {
+    await Future.delayed(Duration(
+      milliseconds: sleep == null ? sleep1 : sleep,
+    ));
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    bool _seen = (prefs.getBool('seen') ?? true);
+
+    if (_seen) {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) {
+          return Language();
+        }),
+      );
+      _seen = await prefs.setBool('seen', false);
+    } else {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) {
+          return Scaffold(
+            backgroundColor: HexColor(from == null ? from1 : from),
+            body: SafeArea(
+              child: WebView(
+                initialUrl: ('https://jibres.ir/my'),
+                javascriptMode: JavascriptMode.unrestricted,
+              ),
+            ),
+          );
+        }),
+      );
+    }
+  }
+
+  //with TickerProviderStateMixin,
   late StreamSubscription subscription;
   var isDeviceConnected = false;
   bool isAlertSet = false;
@@ -43,7 +78,8 @@ class _splashScreenState extends State<splashScreen>
     _getDataSplash();
     getConnectivity();
     super.initState();
-    _handleSplash();
+    //_handleSplash();
+    checkFirstSeen();
   }
 
   getConnectivity() =>
@@ -165,20 +201,6 @@ class _splashScreenState extends State<splashScreen>
         ),
       );
 
-  void _handleSplash() async {
-    await Future.delayed(Duration(
-      milliseconds: sleep == null ? sleep1 : sleep,
-    ));
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(builder: (context) {
-        return Scaffold(
-          body: Language(),
-        );
-      }),
-    );
-  }
-
   Future<void> _getDataSplash() async {
     var urI = Uri.parse('https://core.jibres.ir/r10/android/splash');
     Response response = await get(urI);
@@ -195,5 +217,10 @@ class _splashScreenState extends State<splashScreen>
       primary = jsonDecode(response.body)["result"]["color"]["primary"];
       secondary = jsonDecode(response.body)["result"]["color"]["secondary"];
     });
+  }
+
+  @override
+  FutureOr<void> afterFirstLayout(BuildContext context) {
+    throw UnimplementedError();
   }
 }

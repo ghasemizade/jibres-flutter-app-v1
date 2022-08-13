@@ -12,6 +12,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class Language extends StatefulWidget {
+  static const String id = "/Language";
   const Language({Key? key}) : super(key: key);
 
   @override
@@ -19,47 +20,57 @@ class Language extends StatefulWidget {
 }
 
 class _LanguageState extends State<Language> with AfterLayoutMixin<Language> {
-  void checkFirstSeen() async {
-    SharedPreferences persian = await SharedPreferences.getInstance();
-    bool _choose = (persian.getBool('choose') ?? true);
+  Future checkFirstSeen() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    bool _seen = (prefs.getBool('seen') ?? true);
+    //final prefs = await SharedPreferences.getInstance();
 
-    if (_choose) {
+    if (_seen) {
       Navigator.of(context).pushReplacement(
         new MaterialPageRoute(builder: (context) {
           return Scaffold(
-            backgroundColor: HexColor(from == null ? from1 : from),
-            body: SafeArea(
-              child: WebView(
-                initialUrl: ('https://jibres.ir/my'),
-                javascriptMode: JavascriptMode.unrestricted,
-              ),
-            ),
+            body: Language(),
           );
         }),
       );
     } else {
-      await persian.setBool('choose', false);
+      await prefs.setBool('seen', false);
       Navigator.of(context).pushReplacement(
         new MaterialPageRoute(builder: (context) {
-          return Scaffold(
-            backgroundColor: HexColor(from == null ? from1 : from),
-            body: SafeArea(
-              child: WebView(
-                initialUrl: ('https://jibres.com/my'),
-                javascriptMode: JavascriptMode.unrestricted,
-              ),
-            ),
+          return WebView(
+            initialUrl: ('https://jibres.ir/my'),
+            javascriptMode: JavascriptMode.unrestricted,
           );
         }),
       );
     }
   }
 
-  // @override
-  // void initState() {
-  //   checkFirstSeen();
-  //   super.initState();
+  //final String? language = prefs.getString('lang');
+  // if (language == null) {
+  //   prefs.setString('lang', choosePersian);
+  // } else {
+  //   prefs.setString('lang', chooseEnglish);
   // }
+
+// final String? language = prefs.getString('lang');
+// if(language == null){
+//     prefs.setString('lang', 'eng');
+//     language = 'eng';
+// }
+
+  @override
+  void initState() {
+    //checkFirstSeen();
+    super.initState();
+  }
+
+//   final prefs = await SharedPreferences.getInstance();
+// final String? language = prefs.getString('lang');
+// if(language == null){
+//     prefs.setString(choosePersian, chooseEnglish);
+//     language = choosePersian;
+// }
 
   @override
   Widget build(BuildContext context) {
@@ -166,7 +177,13 @@ class _LanguageState extends State<Language> with AfterLayoutMixin<Language> {
   }
 
   @override
-  void afterFirstLayout(BuildContext context) {
-    return checkFirstSeen();
+  FutureOr<void> afterFirstLayout(BuildContext context) {
+    // TODO: implement afterFirstLayout
+    throw UnimplementedError();
   }
+
+  // @override
+  // void afterFirstLayout(BuildContext context) {
+  //   return checkFirstSeen();
+  // }
 }
