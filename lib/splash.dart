@@ -11,6 +11,7 @@ import 'package:hexcolor/hexcolor.dart';
 import 'package:http/http.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:webview_flutter/webview_flutter.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 dynamic logo;
 dynamic theme;
@@ -24,6 +25,7 @@ dynamic primary;
 dynamic secondary;
 
 class splashScreen extends StatefulWidget {
+  static const String id = "/Language";
   splashScreen({Key? key}) : super(key: key);
 
   @override
@@ -71,10 +73,9 @@ class _splashScreenState extends State<splashScreen>
         ),
         child: Center(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            mainAxisSize: MainAxisSize.max,
             children: [
-              SizedBox(
-                height: 180.0,
-              ),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 80),
                 child: logo == null
@@ -85,31 +86,42 @@ class _splashScreenState extends State<splashScreen>
                         image: NetworkImage(logo),
                       ),
               ),
-              Text(
-                title == null ? title1 : title,
-                style: TextStyle(
-                  fontWeight: FontWeight.w900,
-                  fontSize: 28,
-                  color: HexColor(
-                    primary == null ? primary1 : primary,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    title == null ? title1 : title,
+                    style: TextStyle(
+                      fontWeight: FontWeight.w900,
+                      fontSize: 28,
+                      color: HexColor(
+                        primary == null ? primary1 : primary,
+                      ),
+                    ),
                   ),
-                ),
+                ],
               ),
-              Text(
-                desc == null ? desc1 : desc,
-                style: TextStyle(
-                  fontWeight: FontWeight.w900,
-                  fontSize: 20,
-                  color: HexColor(
-                    primary == null ? primary1 : primary,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    desc == null ? desc1 : desc,
+                    style: TextStyle(
+                      fontWeight: FontWeight.w900,
+                      fontSize: 20,
+                      color: HexColor(
+                        primary == null ? primary1 : primary,
+                      ),
+                    ),
                   ),
-                ),
+                ],
               ),
               SizedBox(
-                height: 200.0,
+                height: 150.0,
               ),
-              CircularProgressIndicator(
-                strokeWidth: 2,
+              SpinKitRipple(
+                color: Colors.white54,
+                size: 60.0,
               ),
               Text(
                 meta == null ? meta1 : meta,
@@ -120,6 +132,9 @@ class _splashScreenState extends State<splashScreen>
                   ),
                 ),
               ),
+              SizedBox(
+                height: 10.0,
+              )
             ],
           ),
         ),

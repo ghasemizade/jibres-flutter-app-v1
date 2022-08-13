@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/Lang.dart';
 import 'package:flutter_application_1/splash.dart';
 
 void main() {
@@ -26,6 +27,11 @@ class _ApplicationState extends State<Application> {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: 'vazir'),
       home: splashScreen(),
+      // initialRoute: splashScreen.id,
+      // routes: {
+      //   splashScreen.id: (context) => splashScreen(),
+      //   Language.id: (context) => Language(),
+      // },
     );
   }
 }
