@@ -6,6 +6,7 @@ import 'package:flutter_application_1/IntroEnglish.dart';
 import 'package:flutter_application_1/IntroPersian.dart';
 import 'package:flutter_application_1/data/modle/splashJson.dart';
 import 'package:flutter_application_1/languageData/DataLang.dart';
+import 'package:flutter_application_1/main.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:flutter_application_1/splash.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -19,11 +20,12 @@ class Language extends StatefulWidget {
   State<Language> createState() => _LanguageState();
 }
 
+String chooselang = '';
+
 class _LanguageState extends State<Language> with AfterLayoutMixin<Language> {
   Future checkFirstSeen() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     bool _seen = (prefs.getBool('seen') ?? true);
-    //final prefs = await SharedPreferences.getInstance();
 
     if (_seen) {
       Navigator.of(context).pushReplacement(
@@ -65,12 +67,11 @@ class _LanguageState extends State<Language> with AfterLayoutMixin<Language> {
     super.initState();
   }
 
-//   final prefs = await SharedPreferences.getInstance();
-// final String? language = prefs.getString('lang');
-// if(language == null){
-//     prefs.setString(choosePersian, chooseEnglish);
-//     language = choosePersian;
-// }
+  void onPressed(String id) {
+    print('pressed $id');
+  }
+
+  final btnfa = ButtonActivateIntent();
 
   @override
   Widget build(BuildContext context) {
@@ -99,7 +100,7 @@ class _LanguageState extends State<Language> with AfterLayoutMixin<Language> {
               children: <Widget>[
                 TextButton(
                   onPressed: () {
-                    _handlePersian();
+                    return _handlePersian();
                   },
                   child: Container(
                     width: 170.0,
@@ -119,7 +120,7 @@ class _LanguageState extends State<Language> with AfterLayoutMixin<Language> {
                 ),
                 TextButton(
                   onPressed: () {
-                    _handleEnglish();
+                    return _handleEnglish();
                   },
                   child: Container(
                     width: 170.0,
@@ -147,6 +148,7 @@ class _LanguageState extends State<Language> with AfterLayoutMixin<Language> {
   }
 
   void _handlePersian() {
+    chooselang = 'fa';
     Navigator.push(
       context,
       MaterialPageRoute(builder: (context) {
@@ -161,6 +163,7 @@ class _LanguageState extends State<Language> with AfterLayoutMixin<Language> {
   }
 
   void _handleEnglish() {
+    chooselang = 'en';
     Navigator.push(
       context,
       MaterialPageRoute(
@@ -178,12 +181,6 @@ class _LanguageState extends State<Language> with AfterLayoutMixin<Language> {
 
   @override
   FutureOr<void> afterFirstLayout(BuildContext context) {
-    // TODO: implement afterFirstLayout
     throw UnimplementedError();
   }
-
-  // @override
-  // void afterFirstLayout(BuildContext context) {
-  //   return checkFirstSeen();
-  // }
 }

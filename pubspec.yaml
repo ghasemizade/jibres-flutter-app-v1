@@ -42,7 +42,9 @@ dependencies:
   cupertino_icons: ^1.0.2
   internet_connection_checker: ^0.0.1+4
   connectivity_plus: ^2.3.6
-
+  flutter_localizations:
+    sdk: flutter
+  intl: ^0.17.0
 dev_dependencies:
   flutter_test:
     sdk: flutter

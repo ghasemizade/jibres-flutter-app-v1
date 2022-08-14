@@ -40,7 +40,10 @@ class _splashScreenState extends State<splashScreen>
       milliseconds: sleep == null ? sleep1 : sleep,
     ));
     SharedPreferences prefs = await SharedPreferences.getInstance();
+    //SharedPreferences lang = await SharedPreferences.getInstance();
+    //SharedPreferences en = await SharedPreferences.getInstance();
     bool _seen = (prefs.getBool('seen') ?? true);
+    //final String? _check = (lang.getString('check'));
 
     if (_seen) {
       Navigator.pushReplacement(
@@ -51,22 +54,54 @@ class _splashScreenState extends State<splashScreen>
       );
       _seen = await prefs.setBool('seen', false);
     } else {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) {
-          return Scaffold(
-            backgroundColor: HexColor(from == null ? from1 : from),
-            body: SafeArea(
-              child: WebView(
-                initialUrl: ('https://jibres.ir/my'),
-                javascriptMode: JavascriptMode.unrestricted,
+      if (chooselang == 'fa') {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) {
+            return Scaffold(
+              backgroundColor: HexColor(from == null ? from1 : from),
+              body: SafeArea(
+                child: WebView(
+                  initialUrl: ('https://jibres.ir/my'),
+                  javascriptMode: JavascriptMode.unrestricted,
+                ),
               ),
-            ),
-          );
-        }),
-      );
+            );
+          }),
+        );
+      } else {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) {
+            return Scaffold(
+              backgroundColor: HexColor(from == null ? from1 : from),
+              body: SafeArea(
+                child: WebView(
+                  initialUrl: ('https://jibres.com/my'),
+                  javascriptMode: JavascriptMode.unrestricted,
+                ),
+              ),
+            );
+          }),
+        );
+      }
     }
   }
+
+  // Navigator.pushReplacement(
+  //       context,
+  //       MaterialPageRoute(builder: (context) {
+  //         return Scaffold(
+  //           backgroundColor: HexColor(from == null ? from1 : from),
+  //           body: SafeArea(
+  //             child: WebView(
+  //               initialUrl: ('https://jibres.ir/my'),
+  //               javascriptMode: JavascriptMode.unrestricted,
+  //             ),
+  //           ),
+  //         );
+  //       }),
+  //     );
 
   //with TickerProviderStateMixin,
   late StreamSubscription subscription;
