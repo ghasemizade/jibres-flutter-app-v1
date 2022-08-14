@@ -30,11 +30,6 @@ class _ApplicationState extends State<Application> {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: 'vazir'),
       home: splashScreen(),
-      // initialRoute: splashScreen.id,
-      // routes: {
-      //   splashScreen.id: (context) => splashScreen(),
-      //   Language.id: (context) => Language(),
-      // },
     );
   }
 }
