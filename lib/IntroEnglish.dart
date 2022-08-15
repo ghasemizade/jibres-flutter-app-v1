@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/data/modle/introJson.dart';
 import 'package:flutter_application_1/data/modle/splashJson.dart';
 
 import 'package:flutter_application_1/splash.dart';
@@ -23,25 +24,25 @@ class IntroSlideEnglishState extends State<IntroSlideEnglish> {
 
     slides.add(
       Slide(
-        title: "Hello",
-        description: "Welcome to the world of Jibbers",
-        pathImage: "Images/logo.png",
+        title: title_en,
+        description: desc_en,
+        pathImage: logo,
         backgroundColor: HexColor(from == null ? from1 : from),
       ),
     );
     slides.add(
       Slide(
-        title: "Sell and Enjoy",
-        description: "Platform electronic commerce",
-        pathImage: "Images/logo.png",
+        title: title_en_1,
+        description: desc_en_1,
+        pathImage: logo,
         backgroundColor: HexColor(from == null ? from1 : from),
       ),
     );
     slides.add(
       Slide(
-        title: "Jibres",
-        description: "Sometimes you need a big change",
-        pathImage: "Images/logo.png",
+        title: title_en_2,
+        description: desc_fa_2,
+        pathImage: logo,
         backgroundColor: HexColor(from == null ? from1 : from),
       ),
     );
@@ -59,7 +60,7 @@ class IntroSlideEnglishState extends State<IntroSlideEnglish> {
               backgroundColor: HexColor(from == null ? from1 : from),
               body: SafeArea(
                 child: WebView(
-                  initialUrl: ('https://jibres.com/my'),
+                  initialUrl: (urlen),
                   javascriptMode: JavascriptMode.unrestricted,
                 ),
               ),

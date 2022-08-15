@@ -8,3 +8,6 @@ dynamic from1 = "#c80a5a";
 dynamic to1 = "#c80a5a";
 dynamic primary1 = "#ffffff";
 dynamic secondary1 = "#eeeeee";
+dynamic ApiUrl = "https://core.jibres.ir/r10/android/splash";
+dynamic urlfa = 'https://jibres.ir/my';
+dynamic urlen = 'https://jibres.com/my';

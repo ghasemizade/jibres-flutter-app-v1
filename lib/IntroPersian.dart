@@ -24,7 +24,7 @@ class IntroSlideState extends State<IntroSlide> {
       Slide(
         title: title_fa,
         description: desc_fa,
-        pathImage: "Images/logo.png",
+        pathImage: logo,
         backgroundColor: HexColor(from == null ? from1 : from),
       ),
     );
@@ -32,7 +32,7 @@ class IntroSlideState extends State<IntroSlide> {
       Slide(
         title: title_fa_1,
         description: desc_fa_1,
-        pathImage: "Images/logo.png",
+        pathImage: logo,
         backgroundColor: HexColor(from == null ? from1 : from),
       ),
     );
@@ -40,7 +40,7 @@ class IntroSlideState extends State<IntroSlide> {
       Slide(
         title: title == null ? from1 : title,
         description: desc_fa_2,
-        pathImage: "Images/logo.png",
+        pathImage: logo,
         backgroundColor: HexColor(from == null ? from1 : from),
       ),
     );
@@ -58,7 +58,7 @@ class IntroSlideState extends State<IntroSlide> {
               backgroundColor: HexColor(from == null ? from1 : from),
               body: SafeArea(
                 child: WebView(
-                  initialUrl: ('https://jibres.ir/my'),
+                  initialUrl: (urlfa),
                   javascriptMode: JavascriptMode.unrestricted,
                 ),
               ),

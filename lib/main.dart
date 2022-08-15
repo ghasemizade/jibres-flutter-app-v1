@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/Lang.dart';
-import 'package:flutter_application_1/languageData/DataLang.dart';
 import 'package:flutter_application_1/splash.dart';
 
 void main() {

@@ -15,6 +15,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
+import 'IntroEnglish.dart';
+import 'IntroPersian.dart';
+
 dynamic logo;
 dynamic theme;
 dynamic title;
@@ -39,14 +42,12 @@ class _splashScreenState extends State<splashScreen>
     await Future.delayed(Duration(
       milliseconds: sleep == null ? sleep1 : sleep,
     ));
+
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    //SharedPreferences lang = await SharedPreferences.getInstance();
-    //SharedPreferences en = await SharedPreferences.getInstance();
     bool _seen = (prefs.getBool('seen') ?? true);
-    //final String? _check = (lang.getString('check'));
 
     if (_seen) {
-      Navigator.pushReplacement(
+      Navigator.push(
         context,
         MaterialPageRoute(builder: (context) {
           return Language();
@@ -54,37 +55,37 @@ class _splashScreenState extends State<splashScreen>
       );
       _seen = await prefs.setBool('seen', false);
     } else {
-      if (chooselang == 'fa') {
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) {
-            return Scaffold(
-              backgroundColor: HexColor(from == null ? from1 : from),
-              body: SafeArea(
-                child: WebView(
-                  initialUrl: ('https://jibres.ir/my'),
-                  javascriptMode: JavascriptMode.unrestricted,
+      setState(() {
+        if (ChooseLang[0] == choosePersian) {
+          Navigator.push(context, MaterialPageRoute(
+            builder: (context) {
+              return Scaffold(
+                backgroundColor: HexColor(from == null ? from1 : from),
+                body: SafeArea(
+                  child: WebView(
+                    initialUrl: (urlfa),
+                    javascriptMode: JavascriptMode.unrestricted,
+                  ),
                 ),
-              ),
-            );
-          }),
-        );
-      } else {
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) {
-            return Scaffold(
-              backgroundColor: HexColor(from == null ? from1 : from),
-              body: SafeArea(
-                child: WebView(
-                  initialUrl: ('https://jibres.com/my'),
-                  javascriptMode: JavascriptMode.unrestricted,
+              );
+            },
+          ));
+        } else {
+          Navigator.push(context, MaterialPageRoute(
+            builder: (context) {
+              return Scaffold(
+                backgroundColor: HexColor(from == null ? from1 : from),
+                body: SafeArea(
+                  child: WebView(
+                    initialUrl: (urlen),
+                    javascriptMode: JavascriptMode.unrestricted,
+                  ),
                 ),
-              ),
-            );
-          }),
-        );
-      }
+              );
+            },
+          ));
+        }
+      });
     }
   }
 
@@ -237,7 +238,7 @@ class _splashScreenState extends State<splashScreen>
       );
 
   Future<void> _getDataSplash() async {
-    var urI = Uri.parse('https://core.jibres.ir/r10/android/splash');
+    var urI = Uri.parse(ApiUrl);
     Response response = await get(urI);
 
     setState(() {

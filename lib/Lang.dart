@@ -21,33 +21,9 @@ class Language extends StatefulWidget {
 }
 
 String chooselang = '';
+bool isPersian = true;
 
-class _LanguageState extends State<Language> with AfterLayoutMixin<Language> {
-  Future checkFirstSeen() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    bool _seen = (prefs.getBool('seen') ?? true);
-
-    if (_seen) {
-      Navigator.of(context).pushReplacement(
-        new MaterialPageRoute(builder: (context) {
-          return Scaffold(
-            body: Language(),
-          );
-        }),
-      );
-    } else {
-      await prefs.setBool('seen', false);
-      Navigator.of(context).pushReplacement(
-        new MaterialPageRoute(builder: (context) {
-          return WebView(
-            initialUrl: ('https://jibres.ir/my'),
-            javascriptMode: JavascriptMode.unrestricted,
-          );
-        }),
-      );
-    }
-  }
-
+class _LanguageState extends State<Language> {
   //final String? language = prefs.getString('lang');
   // if (language == null) {
   //   prefs.setString('lang', choosePersian);
@@ -79,8 +55,10 @@ class _LanguageState extends State<Language> with AfterLayoutMixin<Language> {
       backgroundColor: Color.fromARGB(255, 249, 231, 224),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            SizedBox(
+              height: 130.0,
+            ),
             Text(
               choose,
               style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
@@ -95,51 +73,45 @@ class _LanguageState extends State<Language> with AfterLayoutMixin<Language> {
             SizedBox(
               height: 40,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                TextButton(
-                  onPressed: () {
-                    return _handlePersian();
-                  },
-                  child: Container(
-                    width: 170.0,
-                    height: 145.0,
-                    decoration: const BoxDecoration(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(20),
+            Expanded(
+              child: GridView.builder(
+                itemCount: 2,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2),
+                itemBuilder: ((context, index) {
+                  return GestureDetector(
+                    onTap: () {
+                      tapped(index);
+                    },
+                    child: Container(
+                      height: 80.0,
+                      width: 80.0,
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Color.fromARGB(255, 249, 231, 224),
+                          width: 18,
+                        ),
+                        color: Colors.white,
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(30.0),
+                        ),
                       ),
-                      color: Colors.white,
-                    ),
-                    padding: EdgeInsets.all(15.0),
-                    child: Text(
-                      choosePersian,
-                      textAlign: TextAlign.right,
-                    ),
-                  ),
-                ),
-                TextButton(
-                  onPressed: () {
-                    return _handleEnglish();
-                  },
-                  child: Container(
-                    width: 170.0,
-                    height: 145.0,
-                    decoration: const BoxDecoration(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(20),
+                      child: Center(
+                        child: Text(
+                          ChooseLang[index],
+                          style: TextStyle(
+                            fontSize: 16.0,
+                            fontWeight: FontWeight.bold,
+                            color: ChooseLang[index] == choosePersian
+                                ? Colors.orange
+                                : Colors.blue,
+                          ),
+                        ),
                       ),
-                      color: Colors.white,
                     ),
-                    padding: EdgeInsets.all(15.0),
-                    child: Text(
-                      chooseEnglish,
-                      style: TextStyle(
-                          fontWeight: FontWeight.w600, color: Colors.orange),
-                    ),
-                  ),
-                ),
-              ],
+                  );
+                }),
+              ),
             ),
           ],
         ),
@@ -147,37 +119,85 @@ class _LanguageState extends State<Language> with AfterLayoutMixin<Language> {
     );
   }
 
-  void _handlePersian() {
-    chooselang = 'fa';
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) {
-        return Scaffold(
-          backgroundColor: HexColor(from == null ? from1 : from),
-          body: SafeArea(
-            child: IntroSlide(),
-          ),
-        );
-      }),
-    );
-  }
+  void tapped(int index) {
+    print('$index');
 
-  void _handleEnglish() {
-    chooselang = 'en';
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: ((context) {
+    setState(() {
+      Navigator.push(context, MaterialPageRoute(
+        builder: (context) {
           return Scaffold(
             backgroundColor: HexColor(from == null ? from1 : from),
             body: SafeArea(
-              child: IntroSlideEnglish(),
+              child: ChooseLang[index] == choosePersian
+                  ? IntroSlide()
+                  : IntroSlideEnglish(),
             ),
           );
-        }),
-      ),
-    );
+        },
+      ));
+    });
+    // setState(() {
+    //   if (ChooseLang[index] == true) {
+    //     Navigator.push(
+    //       context,
+    //       MaterialPageRoute(builder: (context) {
+    //         return Scaffold(
+    //           backgroundColor: HexColor(from == null ? from1 : from),
+    //           body: SafeArea(
+    //             child: IntroSlide(),
+    //           ),
+    //         );
+    //       }),
+    //     );
+    //   } else {
+    //     Navigator.push(
+    //       context,
+    //       MaterialPageRoute(
+    //         builder: ((context) {
+    //           return Scaffold(
+    //             backgroundColor: HexColor(from == null ? from1 : from),
+    //             body: SafeArea(
+    //               child: IntroSlideEnglish(),
+    //             ),
+    //           );
+    //         }),
+    //       ),
+    //     );
+    //   }
+    // });
   }
+
+  // void _handlePersian() {
+  //   chooselang = 'fa';
+  //   Navigator.push(
+  //     context,
+  //     MaterialPageRoute(builder: (context) {
+  //       return Scaffold(
+  //         backgroundColor: HexColor(from == null ? from1 : from),
+  //         body: SafeArea(
+  //           child: IntroSlide(),
+  //         ),
+  //       );
+  //     }),
+  //   );
+  // }
+
+  // void _handleEnglish() {
+  //   chooselang = 'en';
+  //   Navigator.push(
+  //     context,
+  //     MaterialPageRoute(
+  //       builder: ((context) {
+  //         return Scaffold(
+  //           backgroundColor: HexColor(from == null ? from1 : from),
+  //           body: SafeArea(
+  //             child: IntroSlideEnglish(),
+  //           ),
+  //         );
+  //       }),
+  //     ),
+  //   );
+  // }
 
   @override
   FutureOr<void> afterFirstLayout(BuildContext context) {
