@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/IntroEnglish.dart';
 import 'package:flutter_application_1/IntroPersian.dart';
@@ -132,67 +130,5 @@ class _LanguageState extends State<Language> {
         },
       ));
     });
-    // setState(() {
-    //   if (ChooseLang[index] == true) {
-    //     Navigator.push(
-    //       context,
-    //       MaterialPageRoute(builder: (context) {
-    //         return Scaffold(
-    //           backgroundColor: HexColor(from == null ? from1 : from),
-    //           body: SafeArea(
-    //             child: IntroSlide(),
-    //           ),
-    //         );
-    //       }),
-    //     );
-    //   } else {
-    //     Navigator.push(
-    //       context,
-    //       MaterialPageRoute(
-    //         builder: ((context) {
-    //           return Scaffold(
-    //             backgroundColor: HexColor(from == null ? from1 : from),
-    //             body: SafeArea(
-    //               child: IntroSlideEnglish(),
-    //             ),
-    //           );
-    //         }),
-    //       ),
-    //     );
-    //   }
-    // });
   }
-
-  // void _handlePersian() {
-  //   chooselang = 'fa';
-  //   Navigator.push(
-  //     context,
-  //     MaterialPageRoute(builder: (context) {
-  //       return Scaffold(
-  //         backgroundColor: HexColor(from == null ? from1 : from),
-  //         body: SafeArea(
-  //           child: IntroSlide(),
-  //         ),
-  //       );
-  //     }),
-  //   );
-  // }
-
-  // void _handleEnglish() {
-  //   chooselang = 'en';
-  //   Navigator.push(
-  //     context,
-  //     MaterialPageRoute(
-  //       builder: ((context) {
-  //         return Scaffold(
-  //           backgroundColor: HexColor(from == null ? from1 : from),
-  //           body: SafeArea(
-  //             child: IntroSlideEnglish(),
-  //           ),
-  //         );
-  //       }),
-  //     ),
-  //   );
-  // }
-
 }
