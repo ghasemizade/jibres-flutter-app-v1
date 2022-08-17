@@ -4,19 +4,18 @@ import 'package:after_layout/after_layout.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/Lang.dart';
+
 import 'package:flutter_application_1/connectivity/errorNoConnecting.dart';
 import 'package:flutter_application_1/data/modle/splashJson.dart';
-import 'package:flutter_application_1/languageData/DataLang.dart';
+import 'package:flutter_application_1/homePage.dart';
+import 'package:flutter_application_1/langPage.dart';
+
 import 'package:hexcolor/hexcolor.dart';
 import 'package:http/http.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:webview_flutter/webview_flutter.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 
-import 'IntroEnglish.dart';
-import 'IntroPersian.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 dynamic logo;
 dynamic theme;
@@ -50,59 +49,19 @@ class _splashScreenState extends State<splashScreen>
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) {
-          return Language();
+          return langPage();
         }),
       );
       _seen = await prefs.setBool('seen', false);
     } else {
-      setState(() {
-        if (ChooseLang[0] == choosePersian) {
-          Navigator.push(context, MaterialPageRoute(
-            builder: (context) {
-              return Scaffold(
-                backgroundColor: HexColor(from == null ? from1 : from),
-                body: SafeArea(
-                  child: WebView(
-                    initialUrl: (urlfa),
-                    javascriptMode: JavascriptMode.unrestricted,
-                  ),
-                ),
-              );
-            },
-          ));
-        } else {
-          Navigator.push(context, MaterialPageRoute(
-            builder: (context) {
-              return Scaffold(
-                backgroundColor: HexColor(from == null ? from1 : from),
-                body: SafeArea(
-                  child: WebView(
-                    initialUrl: (urlen),
-                    javascriptMode: JavascriptMode.unrestricted,
-                  ),
-                ),
-              );
-            },
-          ));
-        }
-      });
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) {
+          return homePage();
+        }),
+      );
     }
   }
-
-  // Navigator.pushReplacement(
-  //       context,
-  //       MaterialPageRoute(builder: (context) {
-  //         return Scaffold(
-  //           backgroundColor: HexColor(from == null ? from1 : from),
-  //           body: SafeArea(
-  //             child: WebView(
-  //               initialUrl: ('https://jibres.ir/my'),
-  //               javascriptMode: JavascriptMode.unrestricted,
-  //             ),
-  //           ),
-  //         );
-  //       }),
-  //     );
 
   //with TickerProviderStateMixin,
   late StreamSubscription subscription;

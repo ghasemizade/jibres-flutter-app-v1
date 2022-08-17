@@ -1,16 +1,12 @@
 import 'dart:async';
 
-import 'package:after_layout/after_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/IntroEnglish.dart';
 import 'package:flutter_application_1/IntroPersian.dart';
 import 'package:flutter_application_1/data/modle/splashJson.dart';
 import 'package:flutter_application_1/languageData/DataLang.dart';
-import 'package:flutter_application_1/main.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:flutter_application_1/splash.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:webview_flutter/webview_flutter.dart';
 
 class Language extends StatefulWidget {
   static const String id = "/Language";
@@ -199,8 +195,4 @@ class _LanguageState extends State<Language> {
   //   );
   // }
 
-  @override
-  FutureOr<void> afterFirstLayout(BuildContext context) {
-    throw UnimplementedError();
-  }
 }

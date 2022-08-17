@@ -13,3 +13,5 @@ String title_en_1 = 'Sell and Enjoy';
 String desc_en_1 = 'Platform electronic commerce';
 String title_en_2 = 'Jibres';
 String desc_en_2 = 'Sometimes you need a big change.';
+
+dynamic logo = "Images/logo.png";

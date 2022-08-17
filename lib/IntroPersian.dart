@@ -24,7 +24,7 @@ class IntroSlideState extends State<IntroSlide> {
       Slide(
         title: title_fa,
         description: desc_fa,
-        pathImage: logo,
+        pathImage: logo1,
         backgroundColor: HexColor(from == null ? from1 : from),
       ),
     );
@@ -32,15 +32,15 @@ class IntroSlideState extends State<IntroSlide> {
       Slide(
         title: title_fa_1,
         description: desc_fa_1,
-        pathImage: logo,
+        pathImage: logo1,
         backgroundColor: HexColor(from == null ? from1 : from),
       ),
     );
     slides.add(
       Slide(
-        title: title == null ? from1 : title,
+        title: title == null ? title1 : title,
         description: desc_fa_2,
-        pathImage: logo,
+        pathImage: logo1,
         backgroundColor: HexColor(from == null ? from1 : from),
       ),
     );
