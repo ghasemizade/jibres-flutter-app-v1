@@ -46,12 +46,16 @@ class _splashScreenState extends State<splashScreen>
     bool _seen = (prefs.getBool('seen') ?? true);
 
     if (_seen) {
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) {
-          return langPage();
-        }),
-      );
+      if (isDeviceConnected) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) {
+            return langPage();
+          }),
+        );
+      } else {
+        getConnectivity();
+      }
       _seen = await prefs.setBool('seen', false);
     } else {
       Navigator.push(
@@ -70,8 +74,8 @@ class _splashScreenState extends State<splashScreen>
 
   @override
   void initState() {
-    _getDataSplash();
     getConnectivity();
+    _getDataSplash();
     super.initState();
     //_handleSplash();
     checkFirstSeen();
@@ -218,4 +222,9 @@ class _splashScreenState extends State<splashScreen>
   FutureOr<void> afterFirstLayout(BuildContext context) {
     throw UnimplementedError();
   }
+
+  // @override
+  // Future<void> afterFirstLayout(BuildContext context) async {
+  //    throw UnimplementedError();
+  // }
 }
