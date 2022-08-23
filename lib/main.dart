@@ -3,14 +3,18 @@ import 'dart:async';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/langPage.dart';
 
 import 'package:flutter_application_1/splash.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 
 import 'connectivity/errorNoConnecting.dart';
 
-void main() {
+Future<void> main() async {
+  await dotenv.load();
+
   runApp(Application());
 }
 

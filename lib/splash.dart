@@ -9,6 +9,7 @@ import 'package:flutter_application_1/connectivity/errorNoConnecting.dart';
 import 'package:flutter_application_1/data/modle/splashJson.dart';
 import 'package:flutter_application_1/homePage.dart';
 import 'package:flutter_application_1/langPage.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 import 'package:hexcolor/hexcolor.dart';
 import 'package:http/http.dart';
@@ -125,7 +126,7 @@ class _splashScreenState extends State<splashScreen>
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    title == null ? title1 : title,
+                    dotenv.env['title1'] ?? 'title not found',
                     style: TextStyle(
                       fontWeight: FontWeight.w900,
                       fontSize: 28,
@@ -140,7 +141,7 @@ class _splashScreenState extends State<splashScreen>
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    desc == null ? desc1 : desc,
+                    dotenv.env['desc1'] ?? 'desc not found',
                     style: TextStyle(
                       fontWeight: FontWeight.w900,
                       fontSize: 20,
@@ -222,9 +223,4 @@ class _splashScreenState extends State<splashScreen>
   FutureOr<void> afterFirstLayout(BuildContext context) {
     throw UnimplementedError();
   }
-
-  // @override
-  // Future<void> afterFirstLayout(BuildContext context) async {
-  //    throw UnimplementedError();
-  // }
 }
