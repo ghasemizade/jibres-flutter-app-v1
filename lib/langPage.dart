@@ -1,15 +1,14 @@
 import 'dart:async';
-import 'dart:ui';
 
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+
 import 'package:flutter_application_1/IntroEnglish.dart';
 import 'package:flutter_application_1/IntroPersian.dart';
 import 'package:flutter_application_1/languageData/DataLang.dart';
 import 'package:flutter_application_1/splash.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
+
 import 'package:hexcolor/hexcolor.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:webview_flutter/webview_flutter.dart';
@@ -100,27 +99,3 @@ class _langPageState extends State<langPage> {
 }
 
 String stashLang = urllang;
-
-
-
-
-// javascriptMode: JavascriptMode.unrestricted,
-//           onPageFinished: (urllang) async {
-//             if (urllang == langfa) {
-//               await Future.delayed(Duration(milliseconds: 30));
-//               Navigator.push(
-//                 context,
-//                 MaterialPageRoute(
-//                   builder: (BuildContext context) => IntroSlide(),
-//                 ),
-//               );
-//             } else if (urllang == langen) {
-//               Navigator.pushReplacement(
-//                 context,
-//                 MaterialPageRoute(
-//                   builder: (BuildContext context) => IntroSlideEnglish(),
-//                 ),
-//               );
-//             }
-//           },
-//         ),

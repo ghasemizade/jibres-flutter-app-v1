@@ -3,9 +3,9 @@ import 'dart:async';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/langPage.dart';
 
 import 'package:flutter_application_1/splash.dart';
+
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 
 import 'connectivity/errorNoConnecting.dart';
@@ -21,8 +21,6 @@ class Application extends StatefulWidget {
 
   @override
   State<Application> createState() => _ApplicationState();
-
-  // static of(BuildContext context) {}
 }
 
 class _ApplicationState extends State<Application> {
@@ -75,7 +73,7 @@ class _ApplicationState extends State<Application> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: 'vazir'),
-      home: langPage(),
+      home: splashScreen(),
     );
   }
 }
