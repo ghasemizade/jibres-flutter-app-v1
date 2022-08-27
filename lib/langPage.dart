@@ -70,6 +70,7 @@ class _langPageState extends State<langPage> {
         child: WebView(
           initialUrl: urllang,
           javascriptMode: JavascriptMode.unrestricted,
+          zoomEnabled: false,
           navigationDelegate: (NavigationRequest request) {
             if (request.url.startsWith('jibres://language')) {
               if (request.url.startsWith('jibres://language/fa')) {

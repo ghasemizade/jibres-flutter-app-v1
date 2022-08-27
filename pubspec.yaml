@@ -44,9 +44,9 @@ dependencies:
   internet_connection_checker: ^0.0.1+4
   connectivity_plus: ^2.3.6
   flutter_dotenv: ^5.0.2
-  flutter_localizations:
-    sdk: flutter
-  intl: ^0.17.0
+  simple_ripple_animation: ^0.0.3
+
+ 
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -90,7 +90,7 @@ flutter:
   fonts:
     - family: vazir
       fonts:
-        - asset: font/vazir_fd_medium_wol.ttf
+        - asset: font/v.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro

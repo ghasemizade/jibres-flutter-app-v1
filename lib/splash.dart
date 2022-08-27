@@ -17,6 +17,7 @@ import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:simple_ripple_animation/simple_ripple_animation.dart';
 
 dynamic logo;
 dynamic theme;
@@ -47,7 +48,7 @@ class _splashScreenState extends State<splashScreen>
     bool _seen = (prefs.getBool('seen') ?? true);
 
     if (_seen) {
-      if (isDeviceConnected) {
+      if (isDeviceConnected == true) {
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) {
@@ -55,17 +56,17 @@ class _splashScreenState extends State<splashScreen>
           }),
         );
       } else {
-        getConnectivity();
+        //getConnectivity();
       }
       _seen = await prefs.setBool('seen', false);
-    } else {
+    } else if (isDeviceConnected == true) {
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) {
           return homePage();
         }),
       );
-    }
+    } else {}
   }
 
   //with TickerProviderStateMixin,
@@ -112,38 +113,45 @@ class _splashScreenState extends State<splashScreen>
             mainAxisAlignment: MainAxisAlignment.end,
             mainAxisSize: MainAxisSize.max,
             children: [
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 80),
-                child: logo == null
-                    ? Image(
-                        image: AssetImage(logo1),
-                      )
-                    : Image(
-                        image: NetworkImage(logo),
-                      ),
+              RippleAnimation(
+                repeat: true,
+                color: Color.fromARGB(255, 250, 30, 102),
+                minRadius: 80,
+                ripplesCount: 8,
+                child: Container(
+                  child: Image(
+                    image: AssetImage(logo1),
+                    height: 200.0,
+                  ),
+                  // child: logo == null
+                  //     ? Image(
+                  //         image: AssetImage(logo1),
+                  //         height: 200.0,
+                  //       )
+                  //     : Image(
+                  //         image: NetworkImage(logo),
+                  //         height: 200.0,
+                  //       ),
+                ),
               ),
-              Row(
+              Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
                     dotenv.env['title1'] ?? 'title not found',
                     style: TextStyle(
-                      fontWeight: FontWeight.w900,
                       fontSize: 28,
                       color: HexColor(
                         primary == null ? primary1 : primary,
                       ),
                     ),
                   ),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
+                  SizedBox(
+                    height: 10.0,
+                  ),
                   Text(
                     dotenv.env['desc1'] ?? 'desc not found',
                     style: TextStyle(
-                      fontWeight: FontWeight.w900,
                       fontSize: 20,
                       color: HexColor(
                         primary == null ? primary1 : primary,
@@ -155,10 +163,6 @@ class _splashScreenState extends State<splashScreen>
               SizedBox(
                 height: 150.0,
               ),
-              SpinKitRipple(
-                color: Colors.white54,
-                size: 60.0,
-              ),
               Text(
                 meta == null ? meta1 : meta,
                 style: TextStyle(
@@ -169,7 +173,7 @@ class _splashScreenState extends State<splashScreen>
                 ),
               ),
               SizedBox(
-                height: 10.0,
+                height: 20.0,
               )
             ],
           ),

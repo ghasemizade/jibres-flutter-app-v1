@@ -70,36 +70,9 @@ class _homePageState extends State<homePage> {
         child: WebView(
           initialUrl: (urlHome),
           javascriptMode: JavascriptMode.unrestricted,
+          zoomEnabled: false,
         ),
       ),
     );
   }
-
-  // _handlelanguage() {
-  //   if (urllang == url_fa) {
-  //     Navigator.push(
-  //       context,
-  //       MaterialPageRoute(
-  //         builder: (BuildContext context) {
-  //           return WebView(
-  //             initialUrl: ('https://jibres.ir/enter?referer=my'),
-  //             javascriptMode: JavascriptMode.unrestricted,
-  //           );
-  //         },
-  //       ),
-  //     );
-  //   } else if (urllang == url_fa) {
-  //     Navigator.pushReplacement(
-  //       context,
-  //       MaterialPageRoute(
-  //         builder: (BuildContext context) {
-  //           return WebView(
-  //             initialUrl: ('https://jibres.com/enter?referer=my'),
-  //             javascriptMode: JavascriptMode.unrestricted,
-  //           );
-  //         },
-  //       ),
-  //     );
-  //   }
-  // }
 }
