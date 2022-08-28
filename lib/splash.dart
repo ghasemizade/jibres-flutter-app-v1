@@ -228,6 +228,15 @@ class _splashScreenState extends State<splashScreen>
                         return homePage();
                       }),
                     );
+                  } else if (isDeviceConnected == false) {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return splashScreen();
+                        },
+                      ),
+                    );
                   }
                 },
                 child: Text('Refresh'),
