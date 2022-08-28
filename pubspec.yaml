@@ -45,13 +45,21 @@ dependencies:
   connectivity_plus: ^2.3.6
   flutter_dotenv: ^5.0.2
   simple_ripple_animation: ^0.0.3
-
+  rename: ^2.0.1
  
 dev_dependencies:
   flutter_test:
     sdk: flutter
   
-    
+
+  flutter_launcher_icons: "^0.10.0"
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "Images/icon.png"
+
+
   
 
   # The "flutter_lints" package below contains a set of recommended lints to

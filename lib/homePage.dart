@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/Test.dart';
 import 'package:flutter_application_1/splash.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
@@ -52,7 +51,6 @@ class _homePageState extends State<homePage> {
                 isDeviceConnected =
                     await InternetConnectionChecker().hasConnection;
                 if (!isDeviceConnected) {
-                  showDialogBox();
                   setState(() => isAlertSet = true);
                 }
               },
@@ -71,6 +69,18 @@ class _homePageState extends State<homePage> {
           initialUrl: (urlHome),
           javascriptMode: JavascriptMode.unrestricted,
           zoomEnabled: false,
+          onPageStarted: (urlHome) {
+            if (isDeviceConnected == false) {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (BuildContext context) {
+                    return splashScreen();
+                  },
+                ),
+              );
+            }
+          },
         ),
       ),
     );

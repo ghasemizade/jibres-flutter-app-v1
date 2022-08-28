@@ -187,6 +187,7 @@ class _splashScreenState extends State<splashScreen>
 
   showDialogBox(context) {
     showModalBottomSheet(
+      barrierColor: Color.fromARGB(170, 0, 0, 0),
       backgroundColor: Colors.transparent,
       context: context,
       builder: (BuildContext bc) {
@@ -233,7 +234,7 @@ class _splashScreenState extends State<splashScreen>
                       context,
                       MaterialPageRoute(
                         builder: (context) {
-                          return splashScreen();
+                          return Application();
                         },
                       ),
                     );
