@@ -9,6 +9,7 @@ import 'package:flutter_application_1/connectivity/errorNoConnecting.dart';
 import 'package:flutter_application_1/data/modle/splashJson.dart';
 import 'package:flutter_application_1/homePage.dart';
 import 'package:flutter_application_1/langPage.dart';
+import 'package:flutter_application_1/main.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 import 'package:hexcolor/hexcolor.dart';
@@ -49,24 +50,26 @@ class _splashScreenState extends State<splashScreen>
 
     if (_seen) {
       if (isDeviceConnected == true) {
-        Navigator.push(
+        Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) {
             return langPage();
           }),
         );
       } else {
-        //getConnectivity();
+        showDialogBox(context);
       }
       _seen = await prefs.setBool('seen', false);
     } else if (isDeviceConnected == true) {
-      Navigator.push(
+      Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) {
           return homePage();
         }),
       );
-    } else {}
+    } else {
+      showDialogBox(context);
+    }
   }
 
   //with TickerProviderStateMixin,
@@ -88,7 +91,7 @@ class _splashScreenState extends State<splashScreen>
         (ConnectivityResult result) async {
           isDeviceConnected = await InternetConnectionChecker().hasConnection;
           if (!isDeviceConnected && isAlertSet == false) {
-            showDialogBox();
+            showDialogBox(context);
             setState(() => isAlertSet = true);
           }
         },
@@ -182,28 +185,73 @@ class _splashScreenState extends State<splashScreen>
     );
   }
 
-  showDialogBox() => showCupertinoDialog<String>(
-        context: context,
-        builder: (BuildContext context) => CupertinoAlertDialog(
-          title: Text(title_connect_en),
-          content: Text(body_connect_en),
-          actions: <Widget>[
-            TextButton(
-              onPressed: () async {
-                Navigator.pop(context, cancel_connect_en);
-                setState(() => isAlertSet = false);
-                isDeviceConnected =
-                    await InternetConnectionChecker().hasConnection;
-                if (!isDeviceConnected) {
-                  showDialogBox();
-                  setState(() => isAlertSet = true);
-                }
-              },
-              child: Text(ok_connect_en),
+  showDialogBox(context) {
+    showModalBottomSheet(
+      backgroundColor: Colors.transparent,
+      context: context,
+      builder: (BuildContext bc) {
+        return Container(
+          decoration: BoxDecoration(
+            color: Color.fromARGB(255, 239, 238, 234),
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20),
+              topRight: Radius.circular(20),
             ),
-          ],
-        ),
-      );
+          ),
+          child: Column(
+            children: [
+              Image(
+                image: AssetImage('Images/ConnectionLost.png'),
+                height: 250,
+              ),
+              Text(
+                'No internet connections!',
+                style: TextStyle(
+                  fontSize: 20.0,
+                ),
+              ),
+              Text(
+                'Please try again later',
+                style: TextStyle(
+                  color: Colors.grey,
+                ),
+              ),
+              SizedBox(
+                height: 20.0,
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  if (isDeviceConnected == true) {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(builder: (context) {
+                        return homePage();
+                      }),
+                    );
+                  }
+                },
+                child: Text('Refresh'),
+                style: ElevatedButton.styleFrom(
+                  primary: Color.fromARGB(255, 200, 10, 90),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(32.0),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  // showDisconnectInternet(){
+  //   return Expanded(
+  //     child: Container(
+  //       decoration: ,
+  //     ),
+  //   );
+  // }
 
   Future<void> _getDataSplash() async {
     var urI = Uri.parse(ApiUrl);
