@@ -187,6 +187,8 @@ class _splashScreenState extends State<splashScreen>
 
   showDialogBox(context) {
     showModalBottomSheet(
+      enableDrag: false,
+      isDismissible: false,
       barrierColor: Color.fromARGB(170, 0, 0, 0),
       backgroundColor: Colors.transparent,
       context: context,

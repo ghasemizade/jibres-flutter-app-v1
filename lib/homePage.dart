@@ -69,7 +69,7 @@ class _homePageState extends State<homePage> {
           initialUrl: (urlHome),
           javascriptMode: JavascriptMode.unrestricted,
           zoomEnabled: false,
-          onPageStarted: (urlHome) {
+          onProgress: (isDeviceConnected) {
             if (isDeviceConnected == false) {
               Navigator.pushReplacement(
                 context,
