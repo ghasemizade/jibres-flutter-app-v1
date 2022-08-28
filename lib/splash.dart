@@ -79,11 +79,11 @@ class _splashScreenState extends State<splashScreen>
 
   @override
   void initState() {
-    getConnectivity();
     _getDataSplash();
     super.initState();
     //_handleSplash();
     checkFirstSeen();
+    getConnectivity();
   }
 
   getConnectivity() =>
