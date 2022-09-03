@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/connectivity/errorNoConnecting.dart';
 import 'package:flutter_application_1/data/modle/splashJson.dart';
 import 'package:flutter_application_1/homePage.dart';
-import 'package:flutter_application_1/langPage.dart';
+import 'package:flutter_application_1/languageScreen/langPage.dart';
 import 'package:flutter_application_1/main.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/data/modle/splashJson.dart';
-import 'package:flutter_application_1/splash.dart';
+import 'package:flutter_application_1/splashScreen/splash.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:intro_slider/intro_slider.dart';
 import 'package:webview_flutter/webview_flutter.dart';
-import 'data/modle/introJson.dart';
+import '../data/modle/introJson.dart';
 
 class IntroSlide extends StatefulWidget {
   const IntroSlide({Key? key}) : super(key: key);

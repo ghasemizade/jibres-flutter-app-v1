@@ -4,17 +4,17 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'package:flutter_application_1/IntroEnglish.dart';
-import 'package:flutter_application_1/IntroPersian.dart';
-import 'package:flutter_application_1/languageData/DataLang.dart';
-import 'package:flutter_application_1/splash.dart';
+import 'package:flutter_application_1/Intro/IntroEnglish.dart';
+import 'package:flutter_application_1/Intro/IntroPersian.dart';
+import 'package:flutter_application_1/languageScreen/DataLang.dart';
+import 'package:flutter_application_1/splashScreen/splash.dart';
 
 import 'package:hexcolor/hexcolor.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-import 'connectivity/errorNoConnecting.dart';
-import 'data/modle/splashJson.dart';
+import '../connectivity/errorNoConnecting.dart';
+import '../data/modle/splashJson.dart';
 
 class langPage extends StatefulWidget {
   const langPage({Key? key}) : super(key: key);
