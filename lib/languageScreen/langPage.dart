@@ -3,18 +3,18 @@ import 'dart:async';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/Intro/IntroEnglish_forJibres.dart';
 
-import 'package:flutter_application_1/Intro/IntroEnglish.dart';
-import 'package:flutter_application_1/Intro/IntroPersian.dart';
 import 'package:flutter_application_1/languageScreen/DataLang.dart';
-import 'package:flutter_application_1/splashScreen/splash.dart';
 
 import 'package:hexcolor/hexcolor.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
+import '../Intro/IntroPersian_forJibres.dart';
 import '../connectivity/errorNoConnecting.dart';
 import '../data/modle/splashJson.dart';
+import '../splashScreen/splash_V1.dart';
 
 class langPage extends StatefulWidget {
   const langPage({Key? key}) : super(key: key);
@@ -98,5 +98,3 @@ class _langPageState extends State<langPage> {
     );
   }
 }
-
-String stashLang = urllang;

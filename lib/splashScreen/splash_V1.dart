@@ -2,13 +2,12 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:after_layout/after_layout.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
 
-import 'package:flutter_application_1/connectivity/errorNoConnecting.dart';
 import 'package:flutter_application_1/data/modle/splashJson.dart';
 import 'package:flutter_application_1/homePage.dart';
-import 'package:flutter_application_1/languageData/langPage.dart';
+
 import 'package:flutter_application_1/main.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
@@ -17,8 +16,9 @@ import 'package:http/http.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:simple_ripple_animation/simple_ripple_animation.dart';
+
+import '../languageScreen/langPage.dart';
 
 dynamic logo;
 dynamic theme;

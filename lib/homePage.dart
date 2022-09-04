@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/languageData/DataLang.dart';
+
 import 'package:flutter_application_1/splashScreen/splash_V1.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
@@ -11,6 +11,8 @@ import 'package:webview_flutter/webview_flutter.dart';
 
 import 'connectivity/errorNoConnecting.dart';
 import 'data/modle/splashJson.dart';
+import 'languageScreen/DataLang.dart';
+import 'languageScreen/langPage.dart';
 
 class homePage extends StatefulWidget {
   const homePage({Key? key}) : super(key: key);
