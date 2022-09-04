@@ -53,7 +53,6 @@ class _langPageState extends State<langPage> {
                     await InternetConnectionChecker().hasConnection;
                 if (!isDeviceConnected) {
                   showDialogBox();
-                  setState(() => isAlertSet = true);
                 }
               },
               child: Text(ok_connect_en),

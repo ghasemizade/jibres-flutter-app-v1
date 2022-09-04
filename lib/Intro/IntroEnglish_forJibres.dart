@@ -35,7 +35,7 @@ class IntroSlideEnglishState extends State<IntroSlideEnglish> {
       Slide(
         title: dotenv.env['title_en_1'] ?? 'not found title 2',
         description: dotenv.env['desc_en_1'] ?? 'not found description 2',
-        pathImage: dotenv.env['logo1'] ?? 'not found logo',
+        //pathImage: dotenv.env['logo1'] ?? 'not found logo',
         backgroundColor: HexColor(from == null ? from1 : from),
       ),
     );
@@ -43,7 +43,7 @@ class IntroSlideEnglishState extends State<IntroSlideEnglish> {
       Slide(
         title: dotenv.env['title_en_2'] ?? 'not found title 3',
         description: dotenv.env['desc_en_2'] ?? 'not found description 3',
-        pathImage: dotenv.env['logo1'] ?? 'not found logo',
+        //pathImage: dotenv.env['logo1'] ?? 'not found logo',
         backgroundColor: HexColor(from == null ? from1 : from),
       ),
     );

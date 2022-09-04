@@ -67,7 +67,7 @@ class _splashScreenState extends State<splashScreen>
           return homePage();
         }),
       );
-    } else {
+    } else if (isDeviceConnected == false) {
       showDialogBox(context);
     }
   }

@@ -1,9 +1,12 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/data/modle/splashJson.dart';
 import 'package:flutter_application_1/splashScreen/splash_V1.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:intro_slider/intro_slider.dart';
+
 import 'package:webview_flutter/webview_flutter.dart';
 
 class IntroSlide extends StatefulWidget {
@@ -15,6 +18,8 @@ class IntroSlide extends StatefulWidget {
 
 class IntroSlideState extends State<IntroSlide> {
   List<Slide> slides = [];
+
+  IntroductionScreen() {}
 
   @override
   void initState() {
@@ -32,7 +37,7 @@ class IntroSlideState extends State<IntroSlide> {
       Slide(
         title: dotenv.env['title_fa_1'] ?? '!تیتر پیدا نشد',
         description: dotenv.env['desc_fa_1'] ?? '!توضیح یافت نشد',
-        pathImage: dotenv.env['logo1'] ?? 'عکس یافت نشد',
+        //pathImage: dotenv.env['logo1'] ?? 'عکس یافت نشد',
         backgroundColor: HexColor(from == null ? from1 : from),
       ),
     );
@@ -40,7 +45,7 @@ class IntroSlideState extends State<IntroSlide> {
       Slide(
         title: dotenv.env['title1'] ?? '!تیتر یافت نشد',
         description: dotenv.env['desc_fa_2'] ?? 'توضیح یافت نشد',
-        pathImage: dotenv.env['logo1'] ?? 'عکس یافت نشد',
+        //pathImage: dotenv.env['logo1'] ?? 'عکس یافت نشد',
         backgroundColor: HexColor(from == null ? from1 : from),
       ),
     );
