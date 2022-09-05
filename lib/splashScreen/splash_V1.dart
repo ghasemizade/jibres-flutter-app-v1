@@ -240,31 +240,35 @@ class _splashScreenState extends State<splashScreen>
               SizedBox(
                 height: 20.0,
               ),
-              ElevatedButton(
-                onPressed: () {
-                  if (isDeviceConnected == true) {
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(builder: (context) {
-                        return homePage();
-                      }),
-                    );
-                  } else if (isDeviceConnected == false) {
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return Application();
-                        },
-                      ),
-                    );
-                  }
-                },
-                child: Text('Refresh'),
-                style: ElevatedButton.styleFrom(
-                  primary: Color.fromARGB(255, 200, 10, 90),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(32.0),
+              Container(
+                width: 250.0,
+                height: 40.0,
+                child: ElevatedButton(
+                  onPressed: () {
+                    if (isDeviceConnected == true) {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (context) {
+                          return homePage();
+                        }),
+                      );
+                    } else if (isDeviceConnected == false) {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return Application();
+                          },
+                        ),
+                      );
+                    }
+                  },
+                  child: Text('Refresh'),
+                  style: ElevatedButton.styleFrom(
+                    primary: Color.fromARGB(255, 200, 10, 90),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(32.0),
+                    ),
                   ),
                 ),
               ),
