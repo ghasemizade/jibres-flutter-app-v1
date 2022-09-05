@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/splashScreen/splash_V1.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 import 'connectivity/errorNoConnecting.dart';
@@ -62,6 +63,19 @@ class _homePageState extends State<homePage> {
         ),
       );
   String urlHome = ('https://jibres.ir/enter?referer=my');
+  saveData() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      stashLang = prefs.getString('stashLang')!;
+    });
+  }
+
+  @override
+  void initState() {
+    saveData();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

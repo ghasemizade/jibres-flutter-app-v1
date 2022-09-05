@@ -7,4 +7,4 @@ dynamic langen = 'jibres://language/en';
 dynamic urlhomefa = 'https://jibres.ir/enter?referer=my';
 dynamic urlhomeen = 'https://jibres.com/enter?referer=my';
 
-dynamic stashLang = 'https://jibres.ir/enter?referer=my';
+String stashLang = '';

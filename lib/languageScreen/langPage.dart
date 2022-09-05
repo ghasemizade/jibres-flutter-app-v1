@@ -61,6 +61,18 @@ class _langPageState extends State<langPage> {
           ],
         ),
       );
+  saveData() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      stashLang = prefs.getString('stashLang')!;
+    });
+  }
+
+  @override
+  void initState() {
+    saveData();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -80,11 +92,8 @@ class _langPageState extends State<langPage> {
                     builder: (BuildContext context) => IntroSlide(),
                   ),
                 );
-                final stash = await SharedPreferences.getInstance();
-                final key = 'lang_key';
-                final value = 'https://jibres.ir/enter?referer=my';
-                await stash.setString(key, value);
-                stashLang = stash.getString(key) ?? 0;
+                SharedPreferences prefs = await SharedPreferences.getInstance();
+                prefs.setString('stashLang', urlhomefa);
                 return NavigationDecision.prevent;
               } else if (request.url.startsWith('jibres://language/en')) {
                 Navigator.pushReplacement(
@@ -93,11 +102,8 @@ class _langPageState extends State<langPage> {
                     builder: (BuildContext context) => IntroSlideEnglish(),
                   ),
                 );
-                final stash = await SharedPreferences.getInstance();
-                final Key = 'lang_key';
-                final value = 'https://jibres.com/enter?referer=my';
-                await stash.setString(Key, value);
-                stashLang = stash.getString(Key) ?? 0;
+                SharedPreferences prefs = await SharedPreferences.getInstance();
+                prefs.setString('stashLang', urlhomeen);
                 return NavigationDecision.prevent;
               }
             }

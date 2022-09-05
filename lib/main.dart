@@ -1,7 +1,5 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/Intro/IntroEnglish_forJibres.dart';
-import 'package:flutter_application_1/Intro/IntroPersian_forJibres.dart';
 
 import 'package:flutter_application_1/splashScreen/splash_V1.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
