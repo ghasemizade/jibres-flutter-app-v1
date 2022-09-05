@@ -56,7 +56,7 @@ class _splashScreenState extends State<splashScreen>
             return langPage();
           }),
         );
-      } else {
+      } else if (isDeviceConnected == false) {
         showDialogBox(context);
       }
       _seen = await prefs.setBool('seen', false);

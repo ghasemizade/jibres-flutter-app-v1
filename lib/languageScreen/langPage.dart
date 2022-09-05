@@ -9,6 +9,7 @@ import 'package:flutter_application_1/languageScreen/DataLang.dart';
 
 import 'package:hexcolor/hexcolor.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 import '../Intro/IntroPersian_forJibres.dart';
@@ -70,7 +71,7 @@ class _langPageState extends State<langPage> {
           initialUrl: urllang,
           javascriptMode: JavascriptMode.unrestricted,
           zoomEnabled: false,
-          navigationDelegate: (NavigationRequest request) {
+          navigationDelegate: (NavigationRequest request) async {
             if (request.url.startsWith('jibres://language')) {
               if (request.url.startsWith('jibres://language/fa')) {
                 Navigator.push(
@@ -79,6 +80,11 @@ class _langPageState extends State<langPage> {
                     builder: (BuildContext context) => IntroSlide(),
                   ),
                 );
+                final stash = await SharedPreferences.getInstance();
+                final key = 'lang_key';
+                final value = 'https://jibres.ir/enter?referer=my';
+                await stash.setString(key, value);
+                stashLang = stash.getString(key) ?? 0;
                 return NavigationDecision.prevent;
               } else if (request.url.startsWith('jibres://language/en')) {
                 Navigator.pushReplacement(
@@ -87,6 +93,11 @@ class _langPageState extends State<langPage> {
                     builder: (BuildContext context) => IntroSlideEnglish(),
                   ),
                 );
+                final stash = await SharedPreferences.getInstance();
+                final Key = 'lang_key';
+                final value = 'https://jibres.com/enter?referer=my';
+                await stash.setString(Key, value);
+                stashLang = stash.getString(Key) ?? 0;
                 return NavigationDecision.prevent;
               }
             }
