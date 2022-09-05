@@ -7,14 +7,14 @@ import 'package:flutter_application_1/splashScreen/splash_V1.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-class IntroSlide extends StatefulWidget {
-  const IntroSlide({Key? key}) : super(key: key);
+class IntroSlidePersian extends StatefulWidget {
+  const IntroSlidePersian({Key? key}) : super(key: key);
 
   @override
-  State<IntroSlide> createState() => _IntroSlideState();
+  State<IntroSlidePersian> createState() => _IntroSlidePersianState();
 }
 
-class _IntroSlideState extends State<IntroSlide> {
+class _IntroSlidePersianState extends State<IntroSlidePersian> {
   @override
   void initState() {
     _pageController = PageController(initialPage: 0);
@@ -43,7 +43,7 @@ class _IntroSlideState extends State<IntroSlide> {
                     _pageIndex = index;
                   });
                 },
-                itemBuilder: ((context, index) => IntroSlideContent(
+                itemBuilder: ((context, index) => IntroSlidePersianContent(
                       titles: demoData[index].titles,
                       description: demoData[index].description,
                     )),
@@ -161,18 +161,19 @@ final List<Onboard> demoData = [
   ),
 ];
 
-class IntroSlideContent extends StatefulWidget {
-  const IntroSlideContent(
+class IntroSlidePersianContent extends StatefulWidget {
+  const IntroSlidePersianContent(
       {Key? key, required this.titles, required this.description})
       : super(key: key);
 
   final String titles, description;
 
   @override
-  State<IntroSlideContent> createState() => _IntroSlideContentState();
+  State<IntroSlidePersianContent> createState() =>
+      _IntroSlidePersianContentState();
 }
 
-class _IntroSlideContentState extends State<IntroSlideContent> {
+class _IntroSlidePersianContentState extends State<IntroSlidePersianContent> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(

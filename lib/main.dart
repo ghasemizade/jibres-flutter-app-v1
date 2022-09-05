@@ -28,7 +28,7 @@ class _ApplicationState extends State<Application> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: 'vazir'),
-      home: IntroSlide(),
+      home: splashScreen(),
     );
   }
 }

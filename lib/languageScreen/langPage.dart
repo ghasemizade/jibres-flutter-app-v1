@@ -89,7 +89,7 @@ class _langPageState extends State<langPage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (BuildContext context) => IntroSlide(),
+                    builder: (BuildContext context) => IntroSlidePersian(),
                   ),
                 );
                 SharedPreferences prefs = await SharedPreferences.getInstance();
