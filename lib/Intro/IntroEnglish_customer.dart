@@ -47,6 +47,64 @@ class _IntroEnglishCustomerState extends State<IntroEnglishCustomer> {
                       )),
                 ),
               ),
+              Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+                Container(
+                  height: 50,
+                  color: Colors.white,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      ElevatedButton(
+                        onPressed: () {
+                          _pageController.nextPage(
+                            curve: Curves.ease,
+                            duration: Duration(milliseconds: 500),
+                          );
+                        },
+                        child: Text(
+                          'skip',
+                          style: TextStyle(color: Colors.black),
+                        ),
+                        style: ElevatedButton.styleFrom(
+                          primary: Colors.white,
+                          elevation: 0.0,
+                        ),
+                      ),
+                      SizedBox(
+                        width: 100.0,
+                      ),
+                      ...List.generate(
+                        demoData.length,
+                        (index) => Padding(
+                          padding: const EdgeInsets.only(right: 10.0),
+                          child: DotIndicator(
+                            isActive: index == _pageIndex,
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 100.0,
+                      ),
+                      ElevatedButton(
+                        onPressed: () {
+                          _pageController.nextPage(
+                            curve: Curves.ease,
+                            duration: Duration(milliseconds: 500),
+                          );
+                        },
+                        child: Text(
+                          'next',
+                          style: TextStyle(color: Colors.black),
+                        ),
+                        style: ElevatedButton.styleFrom(
+                          primary: Colors.white,
+                          elevation: 0.0,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ])
             ],
           ),
         ));
@@ -123,7 +181,7 @@ class _IntroEnglishCustomerContentState
                           topRight: Radius.circular(30),
                         ),
                       ),
-                      height: 300.0,
+                      height: 230.0,
                       child: Center(
                         child: Column(
                           children: [
@@ -148,31 +206,31 @@ class _IntroEnglishCustomerContentState
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  ...List.generate(
-                                    demoData.length,
-                                    (index) => Padding(
-                                      padding:
-                                          const EdgeInsets.only(right: 10.0),
-                                      child: DotIndicator(
-                                        isActive: index == _pageIndex,
-                                      ),
-                                    ),
-                                  ),
+                                  // ...List.generate(
+                                  //   demoData.length,
+                                  //   (index) => Padding(
+                                  //     padding:
+                                  //         const EdgeInsets.only(right: 10.0),
+                                  //     child: DotIndicator(
+                                  //       isActive: index == _pageIndex,
+                                  //     ),
+                                  //   ),
+                                  // ),
                                   SizedBox(width: 250.0),
-                                  ElevatedButton(
-                                    onPressed: () {
-                                      _pageController.nextPage(
-                                        curve: Curves.ease,
-                                        duration: Duration(milliseconds: 500),
-                                      );
-                                    },
-                                    child: Icon(
-                                        Icons.keyboard_arrow_right_outlined),
-                                    style: ElevatedButton.styleFrom(
-                                      primary: HexColor(from1),
-                                      shape: CircleBorder(),
-                                    ),
-                                  ),
+                                  // ElevatedButton(
+                                  //   onPressed: () {
+                                  //     _pageController.nextPage(
+                                  //       curve: Curves.ease,
+                                  //       duration: Duration(milliseconds: 500),
+                                  //     );
+                                  //   },
+                                  //   child: Icon(
+                                  //       Icons.keyboard_arrow_right_outlined),
+                                  //   style: ElevatedButton.styleFrom(
+                                  //     primary: HexColor(from1),
+                                  //     shape: CircleBorder(),
+                                  //   ),
+                                  // ),
                                 ],
                               ),
                             ),
