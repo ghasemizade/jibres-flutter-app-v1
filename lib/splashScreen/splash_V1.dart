@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_application_1/data/modle/splashJson.dart';
 import 'package:flutter_application_1/homePage.dart';
+import 'package:flutter_application_1/languageScreen/DataLang.dart';
 
 import 'package:flutter_application_1/main.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -84,6 +85,7 @@ class _splashScreenState extends State<splashScreen>
     //_handleSplash();
     checkFirstSeen();
     getConnectivity();
+    saveData();
   }
 
   getConnectivity() =>
@@ -104,6 +106,13 @@ class _splashScreenState extends State<splashScreen>
           }
         },
       );
+
+  saveData() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      stashLang = prefs.getString('stashLang')!;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -145,11 +154,12 @@ class _splashScreenState extends State<splashScreen>
                   //       ),
                 ),
               ),
+              // dotenv.env['title1'] ?? 'title not found',
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    dotenv.env['title1'] ?? 'title not found',
+                    stashLang == urlhomeen ? title2 : title1,
                     style: TextStyle(
                       fontSize: 28,
                       color: HexColor(
@@ -161,7 +171,7 @@ class _splashScreenState extends State<splashScreen>
                     height: 10.0,
                   ),
                   Text(
-                    dotenv.env['desc1'] ?? 'desc not found',
+                    stashLang == urlhomeen ? desc2 : desc1,
                     style: TextStyle(
                       fontSize: 20,
                       color: HexColor(
@@ -175,7 +185,7 @@ class _splashScreenState extends State<splashScreen>
                 height: 150.0,
               ),
               Text(
-                meta == null ? meta1 : meta,
+                stashLang == urlhomeen ? meta2 : meta1,
                 style: TextStyle(
                   fontSize: 14,
                   color: HexColor(

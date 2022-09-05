@@ -11,3 +11,6 @@ dynamic secondary1 = "#eeeeee";
 dynamic ApiUrl = "https://core.jibres.ir/r10/android/splash";
 dynamic urlfa = 'https://jibres.ir/my';
 dynamic urlen = 'https://jibres.com/my';
+dynamic title2 = 'Jibres';
+dynamic desc2 = 'Sell and Enjoy';
+dynamic meta2 = 'powerd by Jibres';
