@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/data/modle/introJson.dart';
 import 'package:flutter_application_1/data/modle/splashJson.dart';
 import 'package:flutter_application_1/splashScreen/splash_V1.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -11,9 +12,17 @@ class IntroEnglishCustomer extends StatefulWidget {
 }
 
 class _IntroEnglishCustomerState extends State<IntroEnglishCustomer> {
-  late PageController _pageController;
-  List<Widget> slideList = [];
-  int initialPage = 3;
+  @override
+  void initState() {
+    _pageController = PageController(initialPage: 0);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,10 +33,17 @@ class _IntroEnglishCustomerState extends State<IntroEnglishCustomer> {
             children: [
               Expanded(
                 child: PageView.builder(
+                  itemCount: demoData.length,
+                  controller: _pageController,
+                  onPageChanged: (index) {
+                    setState(() {
+                      _pageIndex = index;
+                    });
+                  },
                   itemBuilder: ((context, index) => IntroEnglishCustomerContent(
-                        image: 'Images/Jibres-Logo-icon-512.png',
-                        titles: title1,
-                        description: desc1,
+                        image: demoData[index].image,
+                        titles: demoData[index].titles,
+                        description: demoData[index].description,
                       )),
                 ),
               ),
@@ -37,7 +53,40 @@ class _IntroEnglishCustomerState extends State<IntroEnglishCustomer> {
   }
 }
 
-class IntroEnglishCustomerContent extends StatelessWidget {
+late PageController _pageController;
+//List<Widget> slideList = [];
+//int initialPage = 3;
+int _pageIndex = 0;
+
+class Onboard {
+  final String image, titles, description;
+
+  Onboard({
+    required this.image,
+    required this.titles,
+    required this.description,
+  });
+}
+
+final List<Onboard> demoData = [
+  Onboard(
+    image: 'Images/ConnectionLost.png',
+    titles: title_fa,
+    description: desc_fa,
+  ),
+  Onboard(
+    image: 'Images/Jibres-Logo-icon-512.png',
+    titles: title_fa_1,
+    description: desc_fa_1,
+  ),
+  Onboard(
+    image: 'Images/logo.png',
+    titles: title_fa_2,
+    description: desc_fa_2,
+  ),
+];
+
+class IntroEnglishCustomerContent extends StatefulWidget {
   const IntroEnglishCustomerContent(
       {Key? key,
       required this.image,
@@ -47,6 +96,13 @@ class IntroEnglishCustomerContent extends StatelessWidget {
 
   final String image, titles, description;
 
+  @override
+  State<IntroEnglishCustomerContent> createState() =>
+      _IntroEnglishCustomerContentState();
+}
+
+class _IntroEnglishCustomerContentState
+    extends State<IntroEnglishCustomerContent> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -63,11 +119,11 @@ class IntroEnglishCustomerContent extends StatelessWidget {
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(40),
-                          topRight: Radius.circular(40),
+                          topLeft: Radius.circular(30),
+                          topRight: Radius.circular(30),
                         ),
                       ),
-                      height: 280.0,
+                      height: 300.0,
                       child: Center(
                         child: Column(
                           children: [
@@ -75,80 +131,14 @@ class IntroEnglishCustomerContent extends StatelessWidget {
                               height: 120.0,
                             ),
                             Text(
-                              titles,
+                              widget.titles,
                               style: TextStyle(fontSize: 28.0),
                             ),
                             SizedBox(
                               height: 15.0,
                             ),
                             Text(
-                              description,
-                              style: TextStyle(fontSize: 20.0),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-            Column(
-              children: [
-                SizedBox(
-                  height: 50.0,
-                ),
-                Center(
-                  child: SizedBox(
-                    height: 450.0,
-                    width: 300.0,
-                    child: Column(
-                      children: [
-                        Card(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20.0),
-                          ),
-                          child: Image(
-                            image: AssetImage(image),
-                            width: 100.0,
-                          ),
-                          elevation: 30,
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Column(
-                  children: [
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(40),
-                          topRight: Radius.circular(40),
-                        ),
-                      ),
-                      height: 280.0,
-                      child: Center(
-                        child: Column(
-                          children: [
-                            SizedBox(
-                              height: 100.0,
-                            ),
-                            Text(
-                              title1,
-                              style: TextStyle(fontSize: 28.0),
-                            ),
-                            SizedBox(
-                              height: 15.0,
-                            ),
-                            Text(
-                              desc1,
+                              widget.description,
                               style: TextStyle(fontSize: 20.0),
                             ),
                             SizedBox(
@@ -156,10 +146,26 @@ class IntroEnglishCustomerContent extends StatelessWidget {
                             ),
                             SizedBox(
                               child: Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
+                                mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
+                                  ...List.generate(
+                                    demoData.length,
+                                    (index) => Padding(
+                                      padding:
+                                          const EdgeInsets.only(right: 10.0),
+                                      child: DotIndicator(
+                                        isActive: index == _pageIndex,
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(width: 250.0),
                                   ElevatedButton(
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      _pageController.nextPage(
+                                        curve: Curves.ease,
+                                        duration: Duration(milliseconds: 500),
+                                      );
+                                    },
                                     child: Icon(
                                         Icons.keyboard_arrow_right_outlined),
                                     style: ElevatedButton.styleFrom(
@@ -181,27 +187,49 @@ class IntroEnglishCustomerContent extends StatelessWidget {
             Column(
               children: [
                 SizedBox(
-                  height: 20.0,
+                  height: 10.0,
                 ),
                 Center(
                   child: SizedBox(
-                    height: 450.0,
-                    width: 300.0,
+                    height: 460.0,
+                    width: 380.0,
                     child: Card(
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20.0),
                       ),
-                      child: Image(
-                        image: AssetImage(image),
-                        width: 100.0,
+                      child: CircleAvatar(
+                        backgroundImage: AssetImage(widget.image),
                       ),
-                      elevation: 35,
+                      elevation: 18,
                     ),
                   ),
                 ),
               ],
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class DotIndicator extends StatelessWidget {
+  const DotIndicator({
+    Key? key,
+    this.isActive = false,
+  }) : super(key: key);
+
+  final bool isActive;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: isActive ? 12 : 4,
+      width: 4,
+      decoration: BoxDecoration(
+        color: HexColor(from1),
+        borderRadius: BorderRadius.all(
+          Radius.circular(12),
         ),
       ),
     );
