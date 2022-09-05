@@ -282,8 +282,8 @@ class DotIndicator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: isActive ? 12 : 4,
-      width: 4,
+      height: 6,
+      width: isActive ? 12 : 6,
       decoration: BoxDecoration(
         color: HexColor(from1),
         borderRadius: BorderRadius.all(
