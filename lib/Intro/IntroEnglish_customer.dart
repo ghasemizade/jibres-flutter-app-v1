@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/data/modle/introJson.dart';
 import 'package:flutter_application_1/data/modle/splashJson.dart';
+import 'package:flutter_application_1/homePage.dart';
+import 'package:flutter_application_1/languageScreen/DataLang.dart';
 import 'package:flutter_application_1/splashScreen/splash_V1.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 class IntroEnglishCustomer extends StatefulWidget {
   const IntroEnglishCustomer({Key? key}) : super(key: key);
@@ -56,13 +59,13 @@ class _IntroEnglishCustomerState extends State<IntroEnglishCustomer> {
                     children: [
                       ElevatedButton(
                         onPressed: () {
-                          _pageController.nextPage(
+                          _pageController.previousPage(
+                            duration: Duration(milliseconds: 300),
                             curve: Curves.ease,
-                            duration: Duration(milliseconds: 500),
                           );
                         },
                         child: Text(
-                          'skip',
+                          _pageIndex == 0 ? '' : 'back',
                           style: TextStyle(color: Colors.black),
                         ),
                         style: ElevatedButton.styleFrom(
@@ -71,7 +74,7 @@ class _IntroEnglishCustomerState extends State<IntroEnglishCustomer> {
                         ),
                       ),
                       SizedBox(
-                        width: 100.0,
+                        width: 70.0,
                       ),
                       ...List.generate(
                         demoData.length,
@@ -83,17 +86,33 @@ class _IntroEnglishCustomerState extends State<IntroEnglishCustomer> {
                         ),
                       ),
                       SizedBox(
-                        width: 100.0,
+                        width: 70.0,
                       ),
                       ElevatedButton(
                         onPressed: () {
-                          _pageController.nextPage(
-                            curve: Curves.ease,
-                            duration: Duration(milliseconds: 500),
-                          );
+                          if (_pageIndex == 0 || _pageIndex == 1) {
+                            _pageController.nextPage(
+                              curve: Curves.ease,
+                              duration: Duration(milliseconds: 500),
+                            );
+                          } else if (_pageIndex == 2) {
+                            Navigator.pushReplacement(context,
+                                MaterialPageRoute(builder: (context) {
+                              return Scaffold(
+                                backgroundColor: HexColor(from1),
+                                body: SafeArea(
+                                  child: WebView(
+                                    initialUrl: urlhomeen,
+                                    zoomEnabled: false,
+                                    javascriptMode: JavascriptMode.unrestricted,
+                                  ),
+                                ),
+                              );
+                            }));
+                          }
                         },
                         child: Text(
-                          'next',
+                          _pageIndex == 2 ? 'done' : 'next',
                           style: TextStyle(color: Colors.black),
                         ),
                         style: ElevatedButton.styleFrom(
@@ -128,19 +147,19 @@ class Onboard {
 
 final List<Onboard> demoData = [
   Onboard(
-    image: 'Images/ConnectionLost.png',
-    titles: title_fa,
-    description: desc_fa,
+    image: 'Images/1.png',
+    titles: title_en,
+    description: desc_en,
   ),
   Onboard(
-    image: 'Images/Jibres-Logo-icon-512.png',
-    titles: title_fa_1,
-    description: desc_fa_1,
+    image: 'Images/2.png',
+    titles: title_en_1,
+    description: desc_en_1,
   ),
   Onboard(
-    image: 'Images/logo.png',
-    titles: title_fa_2,
-    description: desc_fa_2,
+    image: 'Images/3.png',
+    titles: title_en_2,
+    description: desc_en_2,
   ),
 ];
 
@@ -250,13 +269,13 @@ class _IntroEnglishCustomerContentState
                 Center(
                   child: SizedBox(
                     height: 460.0,
-                    width: 380.0,
+                    width: 345.0,
                     child: Card(
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20.0),
                       ),
-                      child: CircleAvatar(
-                        backgroundImage: AssetImage(widget.image),
+                      child: Image(
+                        image: AssetImage(widget.image),
                       ),
                       elevation: 18,
                     ),
