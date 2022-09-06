@@ -231,13 +231,17 @@ class _splashScreenState extends State<splashScreen>
                 height: 250,
               ),
               Text(
-                'No internet connections!',
+                stashLang == urlhomeen
+                    ? 'No internet connections!'
+                    : '!اتصال به انترنت برقرار نیست',
                 style: TextStyle(
                   fontSize: 20.0,
                 ),
               ),
               Text(
-                'Please try again later',
+                stashLang == urlhomeen
+                    ? 'Please try again later'
+                    : 'لطفا بعدا دوباره امتحان کنید',
                 style: TextStyle(
                   color: Colors.grey,
                 ),
@@ -268,7 +272,9 @@ class _splashScreenState extends State<splashScreen>
                       );
                     }
                   },
-                  child: Text('Refresh'),
+                  child: Text(
+                    stashLang == urlhomeen ? 'try again' : 'دوباره امتحان کنید',
+                  ),
                   style: ElevatedButton.styleFrom(
                     primary: Color.fromARGB(255, 200, 10, 90),
                     shape: RoundedRectangleBorder(
