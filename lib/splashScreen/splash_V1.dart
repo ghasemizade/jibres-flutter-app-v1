@@ -78,6 +78,10 @@ class _splashScreenState extends State<splashScreen>
   var isDeviceConnected = false;
   bool isAlertSet = false;
 
+  late AnimationController controller;
+  late Animation colorAnimation;
+  late Animation sizeAnimation;
+
   @override
   initState() {
     _getDataSplash();
@@ -138,6 +142,7 @@ class _splashScreenState extends State<splashScreen>
                 color: Color.fromARGB(255, 250, 30, 102),
                 minRadius: 80,
                 ripplesCount: 8,
+                // duration: Duration(milliseconds: 10000),
                 child: Container(
                   child: Image(
                     image: AssetImage(logo1),
