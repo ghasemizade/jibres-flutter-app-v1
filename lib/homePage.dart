@@ -11,9 +11,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 import 'connectivity/errorNoConnecting.dart';
-import 'data/modle/splashJson.dart';
+import 'data/modle/splashData.dart';
 import 'languageScreen/DataLang.dart';
-import 'languageScreen/langPage.dart';
 
 class homePage extends StatefulWidget {
   const homePage({Key? key}) : super(key: key);

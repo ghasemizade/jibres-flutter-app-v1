@@ -1,10 +1,13 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/data/modle/introJson.dart';
-import 'package:flutter_application_1/data/modle/splashJson.dart';
-import 'package:flutter_application_1/homePage.dart';
+import 'package:flutter_application_1/data/modle/introData.dart';
+import 'package:flutter_application_1/data/modle/splashData.dart';
+
 import 'package:flutter_application_1/languageScreen/DataLang.dart';
-import 'package:flutter_application_1/splashScreen/splash_V1.dart';
+
 import 'package:hexcolor/hexcolor.dart';
+import 'package:http/http.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class IntroSlidePersian extends StatefulWidget {
@@ -17,6 +20,7 @@ class IntroSlidePersian extends StatefulWidget {
 class _IntroSlidePersianState extends State<IntroSlidePersian> {
   @override
   void initState() {
+    getDataIntro();
     _pageController = PageController(initialPage: 0);
     super.initState();
   }
@@ -127,6 +131,22 @@ class _IntroSlidePersianState extends State<IntroSlidePersian> {
         ),
       ),
     );
+  }
+
+  void getDataIntro() async {
+    var uri = Uri.parse('https://core.jibres.ir/r10/android/intro');
+    Response response = await get(uri);
+    setState(() {
+      title_fa = jsonDecode(response.body)['result']['page'][0]['title'];
+      desc_fa = jsonDecode(response.body)['result']['page'][0]['desc'];
+      image = jsonDecode(response.body)['result']['page'][0]['image'];
+      title_fa_1 = jsonDecode(response.body)['result']['page'][1]['subtitle'];
+      desc_fa_1 = jsonDecode(response.body)['result']['page'][1]['desc'];
+      title_fa_2 = jsonDecode(response.body)['result']['page'][3]['title'];
+      desc_fa_2 = jsonDecode(response.body)['result']['page'][4]['subtitle'];
+      image_1 = jsonDecode(response.body)['result']['page'][4]['image'];
+      image_2 = jsonDecode(response.body)['result']['page'][5]['image'];
+    });
   }
 }
 

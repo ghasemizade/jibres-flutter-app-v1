@@ -14,7 +14,7 @@ import 'package:webview_flutter/webview_flutter.dart';
 
 import '../Intro/IntroPersian_forJibres.dart';
 import '../connectivity/errorNoConnecting.dart';
-import '../data/modle/splashJson.dart';
+import '../data/modle/splashData.dart';
 import '../splashScreen/splash_V1.dart';
 
 class langPage extends StatefulWidget {

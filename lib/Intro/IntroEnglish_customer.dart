@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/data/modle/introJson.dart';
-import 'package:flutter_application_1/data/modle/splashJson.dart';
-import 'package:flutter_application_1/homePage.dart';
+import 'package:flutter_application_1/data/modle/introData.dart';
+import 'package:flutter_application_1/data/modle/splashData.dart';
+
 import 'package:flutter_application_1/languageScreen/DataLang.dart';
-import 'package:flutter_application_1/splashScreen/splash_V1.dart';
+
 import 'package:hexcolor/hexcolor.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 

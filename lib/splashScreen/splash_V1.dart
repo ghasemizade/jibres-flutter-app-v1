@@ -5,12 +5,11 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 
 import 'package:flutter/material.dart';
 
-import 'package:flutter_application_1/data/modle/splashJson.dart';
+import 'package:flutter_application_1/data/modle/splashData.dart';
 import 'package:flutter_application_1/homePage.dart';
 import 'package:flutter_application_1/languageScreen/DataLang.dart';
 
 import 'package:flutter_application_1/main.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 import 'package:hexcolor/hexcolor.dart';
 import 'package:http/http.dart';

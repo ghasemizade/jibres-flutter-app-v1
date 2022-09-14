@@ -1,13 +1,14 @@
 import 'dart:async';
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Intro/IntroPersian_customer.dart';
-import 'package:flutter_application_1/Intro/IntroPersian_forJibres.dart';
-
+import 'package:http/http.dart';
 import 'package:flutter_application_1/splashScreen/splash_V1.dart';
-import 'package:flutter_application_1/splashScreen/splash_V2.dart';
+
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-import 'Intro/IntroEnglish_customer.dart';
+import 'Intro/IntroPersian_forJibres.dart';
+import 'data/modle/introData.dart';
 
 Future<void> main() async {
   await dotenv.load();
