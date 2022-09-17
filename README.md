@@ -28,7 +28,8 @@ Further information about Jibres is available in the [Jibres]
 
 ## Installation
 
-d
+Here’s how you might use the flutter tool to create, analyze, test, and run an app:
+`$flutter create my_app`
 
 ### Copyright
 
