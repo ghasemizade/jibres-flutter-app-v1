@@ -31,15 +31,21 @@ Further information about Jibres is available in the [Jibres]
 Here’s how you might use the flutter tool to create, analyze, test, and run an app:
 
 `$ flutter create my_app`
+
 `$ cd my_app`
+
 `$ flutter analyze`
+
 `$ flutter test`
+
 `$ flutter run lib/main.dart`
 
 To run pub commands using the flutter tool:
 
 `$ flutter pub get`
+
 `$ flutter pub outdated`
+
 `$ flutter pub upgrade`
 
 To view all commands that flutter supports:
