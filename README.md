@@ -12,11 +12,11 @@
 <!-- <img src= "https://user-images.githubusercontent.com/92257857/190849648-8ddde012-2e79-4ce7-9c4f-b7ae41c854bb.png" width="250" height="450">
 <img src= "https://user-images.githubusercontent.com/92257857/190849652-8a87b50b-f121-41bb-8711-f43674415d95.png" width="250" height="450">
 <img src= "https://user-images.githubusercontent.com/92257857/190849654-5e50fde3-c86d-4420-9173-f5922b30c017.png" width="250" height="450"> -->
-<img src= "https://user-images.githubusercontent.com/92257857/190849778-13c5443d-ed6c-436a-8a03-c695804c6588.png" width="200" height="380">
-<img src= "https://user-images.githubusercontent.com/92257857/190849781-23e23cdc-2b50-473f-a35a-bf3f7aa48b76.png" width="200" height="380">
-<img src= "https://user-images.githubusercontent.com/92257857/190849784-977ff258-791d-4ce6-a92f-31f01da97b70.png" width="200" height="380">
-<img src= "https://user-images.githubusercontent.com/92257857/190849661-0ea065d8-6922-438c-909f-051b3a9844c0.png" width="200" height="380">
-<img src= "https://user-images.githubusercontent.com/92257857/190849664-baacdc72-cffb-41da-9353-ce6f20315a75.png" width="200" height="380">
+<img src= "https://user-images.githubusercontent.com/92257857/190849778-13c5443d-ed6c-436a-8a03-c695804c6588.png" width="180" height="350">
+<img src= "https://user-images.githubusercontent.com/92257857/190849781-23e23cdc-2b50-473f-a35a-bf3f7aa48b76.png" width="180" height="350">
+<img src= "https://user-images.githubusercontent.com/92257857/190849784-977ff258-791d-4ce6-a92f-31f01da97b70.png" width="180" height="350">
+<img src= "https://user-images.githubusercontent.com/92257857/190849661-0ea065d8-6922-438c-909f-051b3a9844c0.png" width="180" height="350">
+<img src= "https://user-images.githubusercontent.com/92257857/190849664-baacdc72-cffb-41da-9353-ce6f20315a75.png" width="180" height="350">
 </p>
 
 # Jibres App
