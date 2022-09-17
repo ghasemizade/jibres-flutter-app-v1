@@ -52,6 +52,9 @@ To view all commands that flutter supports:
 
 `$ flutter --help --verbose`
 
+To get the current version of the Flutter SDK, including its framework, engine, and tools:
+
+`$ flutter --version`
 
 ### Copyright
 
