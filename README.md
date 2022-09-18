@@ -75,6 +75,7 @@ maybe later there will be updates to improve the performance.
 - [x] Then select the language that is selected to be saved in the program.
 - [x] and navigate to the intro pages according to the selected language.
 - [x] After introducing the application in the intro pages, navigate to the user's account login page which is done with webview.
+- [x] Instant check of internet connection, which will stop using the program as soon as the internet is interrupted.
 
 ### Copyright
 
