@@ -66,6 +66,8 @@ I wrote this project with Flutter framework and it is my first project with Flut
 and I know that the code I wrote can be written much better because it is my first project.
 maybe later there will be updates to improve the performance.
 
+### I made a checklist here of the things I did in this project
+
 ### Copyright
 
 Copyright © 2022 Jibres - Mobile App
