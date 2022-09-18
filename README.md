@@ -68,7 +68,7 @@ maybe later there will be updates to improve the performance.
 
 ### Copyright
 
-Copyright © 2022 Jibres - Android App
+Copyright © 2022 Jibres - Mobile App
 
 ### License
 
