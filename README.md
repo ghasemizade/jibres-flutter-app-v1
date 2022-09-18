@@ -71,9 +71,10 @@ maybe later there will be updates to improve the performance.
 - [x] Creating a splash page.
 - [x] Implement ripple animation for the splash screen.
 - [x] Getting data from the server using Jibers api.
-- [x] Do make sure the available interactions are intuitive. In other words, we will be considering usability.
-- [x] Some kind of persistency (LocalStorage or SessionStorage) is encouraged, though not required.
-- [x] Any additional features find important in README file about why made certain choices.
+- [x] Show the web view to choose the language that there are two languages to choose, Farsi and English.
+- [x] Then select the language that is selected to be saved in the program.
+- [x] and navigate to the intro pages according to the selected language.
+- [x] After introducing the application in the intro pages, navigate to the user's account login page which is done with webview.
 
 ### Copyright
 
