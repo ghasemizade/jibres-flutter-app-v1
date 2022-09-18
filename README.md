@@ -68,6 +68,13 @@ maybe later there will be updates to improve the performance.
 
 ### I made a checklist here of the things I did in this project
 
+- [x] Creating a splash page.
+- [x] Implement ripple animation for the splash screen.
+- [x] Getting data from the server using Jibers api.
+- [x] Do make sure the available interactions are intuitive. In other words, we will be considering usability.
+- [x] Some kind of persistency (LocalStorage or SessionStorage) is encouraged, though not required.
+- [x] Any additional features find important in README file about why made certain choices.
+
 ### Copyright
 
 Copyright © 2022 Jibres - Mobile App
