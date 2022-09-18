@@ -62,6 +62,9 @@ To get the current version of the Flutter SDK, including its framework, engine, 
 `$ flutter --version`
 
 ## Why Start this project
+I wrote this project with Flutter framework and it is my first project with Flutter framework 
+and I know that the code I wrote can be written much better because it is my first project.
+maybe later there will be updates to improve the performance.
 
 ### Copyright
 
